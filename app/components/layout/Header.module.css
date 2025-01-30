@@ -1,0 +1,222 @@
+/* -------- HEADER STYLE START ------------*/
+
+.header-desktop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    text-align: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px; /* Total height: 60px */
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    height: 80px; /* Set a fixed height for the header */
+  }
+  
+  
+  .logo-text {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .support- p {
+    margin: 0;
+  }
+  
+  .support- :nth-child(1) {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .support- :nth-child(2) {
+    font-size: 10px;
+    color: #aaaaaa;
+  }
+  
+  .nav-links-cover {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    gap: 20px;
+    background-color: #eef2f7;
+  }
+  
+  .nav-links-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .nav-links-icon div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #eef2f7;
+    border-radius: 50%;
+  }
+  
+  .nav-links-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #eef2f7;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .nav-links-item span {
+    background-color: #ea1179;
+    padding: 2px 4px;
+    font-weight: 700;
+    border-radius: 50%;
+    font-size: 10px;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    left: 25px;
+    color: #fff;
+    min-width: 10px;
+    height: 10px;
+  }
+  
+  .nav-links input {
+    border: none;
+    outline: none;
+    height: 25px;
+    width: 300px;
+    background-color: transparent;
+    color: grey;
+  }
+  
+  .link-style {
+    text-decoration: none;
+    color: #000;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .link-go-optical p {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .link-go-optical p > span {
+    color: #ea1179;
+  }
+  
+  /* HAMBURGER MENU */
+  
+  .hamburger-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    height: 20px;
+    width: 62px;
+  }
+  
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    width: 40%;
+    background-color: #232121;
+    transition: all 0.3s;
+  }
+  
+  .hamburger-icon.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(6px);
+  }
+  
+  .hamburger-icon.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-icon.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-6px);
+  }
+  
+  .menu-links {
+    display: none;
+  }
+  
+  .menu-links.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    height: auto;
+    border-radius: 24px;
+  }
+  
+  .cover-left-hamburger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hamburger-cover {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-icon{
+    font-size: 90px;
+    color: #ea1179;
+  }
+  @media (max-width: 960px) {
+    .header-desktop {
+      display: none;
+    }
+    #hamburger-nav {
+      display: flex;
+      flex-direction: column;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      position: fixed;
+      background-color: #fff;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 999;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    }
+  }
+
+  @media (max-width: 768px) {
+  
+  .link-go-optical p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+}
+  /* -------- HEADER STYLE END ---------- */
+  

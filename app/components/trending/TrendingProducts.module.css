@@ -1,0 +1,182 @@
+.coverCard{
+  display: flex;
+  width: 100%;
+  max-width: 250px;
+  height: 300px; /* Fixed height */
+  max-height: 300px;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: #000;
+  gap: 20px;
+  background-color: #f2f2f2;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  border-radius: 5px;
+
+}
+
+  
+  .Top-deals-up {
+    position: relative;
+    flex: 7; /* 80% of the 170px */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center;    /* Center the image vertically */
+    height: 70%; /* Ensure the height is set */
+    border-radius: 10px;
+  }
+  
+  .Top-deals h3 {
+    padding: 0;
+    font-weight: 500;
+  }
+  
+  .Top-deals-up > img {
+    width: 100%;
+    height: 100%; /* Ensure the image respects the height of its parent */
+    object-fit: cover; /* Ensures the image covers the div without stretching */
+    object-position: center;
+  }
+  
+  .Top-deals-up > p {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    padding: 2px;
+    color: white;
+    font-weight: 500;
+    font-size: 10px;
+    margin-left: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    border-radius: 5px;
+  }
+  
+  .Top-deals-up p > span {
+    color: red;
+  }
+  .Top-deal-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .Top-deal-main:hover {
+    transform: scale(1.025);
+  }
+  
+  .Top-deals-bottom {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    height: 30%;
+    flex: 3; /* 20% of the 170px */
+  }
+  
+  .Top-deals-bottom h4 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 15px;
+  }
+  
+  .Top-deals-bottom > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .Top-deals-bottom div > button {
+    background-color: #fcf2f1;
+    color: #fd8071;
+    border: none;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+  
+  .top-deal-price {
+    padding: 10px 0 0 0;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+  .top-deal-name {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    text-wrap: wrap;
+    white-space: wrap;
+    color: grey;
+    white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+
+  }
+  
+  @media (max-width: 768px) {
+    #wrapper {
+      width: 768px;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .coverCard{
+      width: 40vw; /* Adjust the box width based on viewport */
+      max-width: none; /* Remove max-width restriction */
+      height: auto; /* Allow height to adjust */
+      max-height: none; /* Remove max-height restriction */
+    
+    }
+    .Top-deals-up {
+      height: auto; /* Let the top div take up a dynamic height based on the image */
+     
+    }
+    .Top-deals-up > img {
+      width: 100%; /* Maintain full width */
+      height: auto; /* Allow height to adjust proportionally */
+      object-fit: contain; /* Adjust image without cropping */
+    }
+
+  }
+
+  
+  @media (max-width: 480px) {
+    #wrapper {
+      width: 480px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+ 
+    .Top-deals-bottom h4 {
+      margin-bottom: 2px;
+      margin-top: 1px;
+      font-size: 10px;
+    }
+    .top-deal-name {
+      font-size: 10px;
+    }
+    .top-deal-price {
+      padding: 5px 0 0 0;
+      margin: 0;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .Top-deals-bottom > div {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .Top-deals-bottom div > button {
+      background-color: #fcf2f1;
+      color: #fd8071;
+      border: none;
+      padding: 5px;
+      margin-top: 2px;
+      border-radius: 5px;
+    }
+  }

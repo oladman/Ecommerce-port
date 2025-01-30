@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model products {
+  id             Int     @id @default(autoincrement())
+  ProductName    String  @db.VarChar(500)
+  Price          String  @db.VarChar(100)
+  Color          String  @db.VarChar(100)
+  ProductDetails String  @db.VarChar(5000)
+  ProductAttach  String  @db.VarChar(5000)
+  Type           String? @db.VarChar(255)
+}
+
+model users {
+  id           Int    @id @default(autoincrement())
+  FirstName    String @db.Text
+  LastName     String @db.Text
+  Email        String @db.VarChar(100)
+  PhoneNumber  String @db.VarChar(20)
+  Password     String @db.VarChar(100)
+  DfirstName   String @db.VarChar(100)
+  DlastName    String @db.VarChar(100)
+  DphoneNumber String @db.VarChar(100)
+  Dstreet      String @db.VarChar(500)
+  Ddirections  String @db.VarChar(1000)
+  Dcity        String @db.VarChar(100)
+  Dstate       String @db.VarChar(100)
+  Dlocalgva    String @db.VarChar(100)
+  Role         String @db.VarChar(10)
+}

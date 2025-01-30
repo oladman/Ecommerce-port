@@ -1,0 +1,19 @@
+.cover-image-category{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.cover-image-category > p{
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.image-category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
