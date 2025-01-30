@@ -49,7 +49,7 @@ const TrendingProducts = async () => {
               </p>
             </div>
             <div className={styles['Top-deals-bottom']}>
-              <h4>Men's Footwear</h4>
+              <h4>Men&apos;s Footwear</h4>
               <p className={styles['top-deal-name']}>{product.ProductName}</p>
               <div>
                 <p className={styles['top-deal-price']}>₦ {product.Price}</p>
