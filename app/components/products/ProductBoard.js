@@ -24,6 +24,9 @@ const ProductBoard = async ({ category = "men", limit = 10, imagePath = "/images
     }
   };
 
+
+  
+
   // Fetch products for the given category
   const ProductList = await getProducts();
 

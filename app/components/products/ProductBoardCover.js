@@ -9,7 +9,7 @@ const ProductBoardCover = () => {
       <div className={styles["List-start"]}>
         <div className={styles["Category-body"]}>
           <div className={styles["Category-name"]}>Men</div>
-          <Link href="/Men" className={styles["Category-angle"]}>
+          <Link href="/men" className={styles["Category-angle"]}>
             Show All <HiArrowLongRight style={{ color: "grey", marginLeft:"10px" }} />
           </Link>
         </div>
@@ -33,7 +33,7 @@ const ProductBoardCover = () => {
       <div className={styles["List-start"]}>
         <div className={styles["Category-body"]}>
           <div className={styles["Category-name"]}>Kid</div>
-          <Link href="/Kid" className={styles["Category-angle"]}>
+          <Link href="/kid" className={styles["Category-angle"]}>
             Show All <HiArrowLongRight style={{ color: "grey", marginLeft:"10px" }} />
           </Link>
         </div>
@@ -45,7 +45,7 @@ const ProductBoardCover = () => {
       <div className={styles["List-start"]}>
         <div className={styles["Category-body"]}>
           <div className={styles["Category-name"]}>Belt</div>
-          <Link href="/Belt" className={styles["Category-angle"]}>
+          <Link href="/belt" className={styles["Category-angle"]}>
             Show All <HiArrowLongRight style={{ color: "grey", marginLeft:"10px" }} />
           </Link>
         </div>

@@ -8,7 +8,7 @@ export async function GET() {
   try {
     const products = await prisma.products.findMany({
       where: {
-        Type: "Kids",  // Add this line to filter products by Type "men"
+        Type: "kid",  // Add this line to filter products by Type "men"
       },
       orderBy: {
         id: "desc",
