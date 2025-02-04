@@ -5,8 +5,16 @@ import { BsSearch } from 'react-icons/bs';
 import { GrFavorite } from 'react-icons/gr';
 import { HiOutlineUser } from 'react-icons/hi';
 import { PiShoppingCart } from 'react-icons/pi';
+import { IoMan } from "react-icons/io5";
 import { useState } from 'react';
-import styles from './Header.module.css'; // Import your CSS module
+import { IoWoman } from "react-icons/io5";
+import { CiBoxes } from "react-icons/ci";
+import { MdFavoriteBorder } from "react-icons/md";
+import { FaBaby } from "react-icons/fa";
+import { PiBelt } from "react-icons/pi";
+import { RiChat3Line } from "react-icons/ri";
+import { RiContractLine } from "react-icons/ri";
+import styles from './Header.module.css'; 
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +22,19 @@ const Header = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
+  const categoryIcons = {
+    Orders: <CiBoxes  size={18} />,
+    Favourites: <MdFavoriteBorder size={18} />,
+    Men: <IoMan size={18} />,
+    Women: <IoWoman size={18} />,
+    Kid: <FaBaby size={18} />,
+    Belt: <PiBelt size={18} />,
+    'Contact us': <RiChat3Line size={18} />
+  };
+  const categoryIconstwo = {
+    'Contact us': <RiChat3Line size={18} />,
+    'Terms & Condtion': <RiContractLine size={18} />
+  };
   return (
     <>
       {/* Desktop Navigation */}
@@ -77,15 +97,33 @@ const Header = () => {
               
             </div>
             <div className={`${styles['menu-links']} ${menuOpen ? styles['open'] : ''}`}>
+            <hr className={styles['line']} />
+            <div>
+              <p className={styles['top-sign']}>Categories</p>
               <ul className={styles['menu-links-ul']}>
-                {['Orders', 'Favourites', 'Men', 'Women', 'Kid', 'Belt', 'Contact us'].map((item, index) => (
-                  <li key={index} className={styles['menu-item']} onClick={toggleMenu}>
-                    <Link href={`#${item.toLowerCase()}`} className={styles['link-style-mobile']}>
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+    {['Orders', 'Favourites', 'Men', 'Women', 'Kid', 'Belt'].map((item, index) => (
+      <li key={index} className={styles['menu-item']} onClick={toggleMenu}>
+        <Link href={`#${item.toLowerCase()}`} className={styles['link-style-mobile']}>
+          {categoryIcons[item]} {/* Render icon before text */}
+          <span style={{ marginLeft: '8px' }}>{item}</span>
+        </Link>
+      </li>
+    ))}
+  </ul></div>
+  <hr className={styles['line']} />
+  <div>
+  <p className={styles['top-sign']}>My Account</p>
+  <ul className={styles['menu-links-ul']}>
+    {['Contact us', 'Terms & Condtion'].map((item, index) => (
+      <li key={index} className={styles['menu-item']} onClick={toggleMenu}>
+        <Link href={`#${item.toLowerCase()}`} className={styles['link-style-mobile']}>
+          {categoryIconstwo[item]} {/* Render icon before text */}
+          <span style={{ marginLeft: '8px' }}>{item}</span>
+        </Link>
+      </li>
+    ))}
+  </ul>
+  </div>
             </div>
           </div>
           <div className={styles['nav-links-icon']}>
