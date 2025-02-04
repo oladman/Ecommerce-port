@@ -56,6 +56,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    
   }
   
   .nav-links-icon div {
@@ -75,6 +76,8 @@
     background-color: #eef2f7;
     border-radius: 50%;
     position: relative;
+    z-index: -999;
+
   }
   
   .nav-links-item span {
@@ -90,6 +93,7 @@
     color: #fff;
     min-width: 10px;
     height: 10px;
+   
   }
   
   .nav-links input {
@@ -260,7 +264,7 @@
 @media (max-width: 480px) {
 
   .menu-links.open {
-    top: 25%;
+    top: 50%;
   
   }
   #hamburger-nav {
