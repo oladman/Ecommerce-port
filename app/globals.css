@@ -34,3 +34,15 @@ body {
   margin-top: 60px; /* Match the header height */
   padding: 20px; /* Optional: Add some padding for aesthetics */
 }
+
+@media (max-width: 481px) {
+
+
+  #wrapper {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+}

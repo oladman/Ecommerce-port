@@ -66,18 +66,19 @@ const Header = () => {
                 <span></span>
                 <span></span>
               </div>
-              <Link href="/about" className={styles['link-go-optical']} style={{ textDecoration: "none", color: "#000" }}>
+              <Link href="/" className={styles['link-go-optical-mobile']} style={{ textDecoration: "none", color: "#000" }}>
                 <p>
                   YEFFSO
                 </p>
-              </Link>
-              <span>
+                <span>
                     <GiMorgueFeet className='logo-icon'  />
                   </span>
+              </Link>
+              
             </div>
             <div className={`${styles['menu-links']} ${menuOpen ? styles['open'] : ''}`}>
               <ul className={styles['menu-links-ul']}>
-                {['About', 'Experience', 'Projects', 'Contact'].map((item, index) => (
+                {['Orders', 'Favourites', 'Men', 'Women', 'Kid', 'Belt', 'Contact us'].map((item, index) => (
                   <li key={index} className={styles['menu-item']} onClick={toggleMenu}>
                     <Link href={`#${item.toLowerCase()}`} className={styles['link-style-mobile']}>
                       {item}

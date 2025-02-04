@@ -115,6 +115,15 @@
     font-size: 18px;
     font-weight: 700;
   }
+
+  .link-go-optical-mobile {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    
+  }
   
   .link-go-optical p > span {
     color: #ea1179;
@@ -129,7 +138,7 @@
     flex-direction: column;
     gap: 5px;
     height: 20px;
-    width: 62px;
+    width: 60px;
   }
   
   .hamburger-icon span {
@@ -159,24 +168,25 @@
   .menu-links.open {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     position: fixed;
-    top: 45%;
+    top: 33%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%;
+    width: 100%;
     height: auto;
-    border-radius: 24px;
+  
   }
   
   .cover-left-hamburger-menu {
     display: flex;
     align-items: center;
     justify-content: center;
+   
   }
   
   .hamburger-cover {
@@ -189,6 +199,24 @@
     font-size: 90px;
     color: #ea1179;
   }
+  .link-style-mobile{
+    text-decoration: none;
+    color: #000;
+  }
+
+  .menu-links-ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+  }
+  .menu-links-ul li{
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+}
   @media (max-width: 960px) {
     .header-desktop {
       display: none;
@@ -217,6 +245,34 @@
     font-weight: 500;
   }
   
+}
+@media (max-width: 480px) {
+
+  .menu-links.open {
+    top: 30%;
+  
+  }
+  #hamburger-nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+  }
+  .menu-links-ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #000;
+  }
+  .menu-links-ul li{
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+}
+
 }
   /* -------- HEADER STYLE END ---------- */
   

@@ -28,9 +28,9 @@ function Footer() {
           <div className={styles['footer-section-three']}>
             <p>NEED HELP?</p>
             <ul>
-              <li><Link href="#projects" className={styles['footer-link']}>Projects</Link></li>
-              <li><Link href="#about" className={styles['footer-link']}>About me</Link></li>
-              <li><Link href="#contact" className={styles['footer-link']}>Contact me</Link></li>
+              <li><Link href="#projects" className={styles['footer-link']}>Help Center</Link></li>
+              <li><Link href="#about" className={styles['footer-link']}>Report Product</Link></li>
+              <li><Link href="#contact" className={styles['footer-link']}>Contact Us</Link></li>
             </ul>
           </div>
           <div className={styles['footer-section-four']}>
