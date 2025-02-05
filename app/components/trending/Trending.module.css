@@ -1,6 +1,7 @@
 .Top-deals {
   margin-top: 50px;
   margin-bottom: 50px;
+ margin-left: 10px;
 }
 
 .Top-deals h3 {
@@ -17,11 +18,7 @@
 }
 
 @media (max-width: 768px) {
-  #wrapper {
-    width: 768px;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+ 
   .Top-deal-cover {
     display: grid;
     align-items: center;

@@ -35,7 +35,7 @@ body {
   padding: 20px; /* Optional: Add some padding for aesthetics */
 }
 
-@media (max-width: 481px) {
+@media (max-width: 480px) {
 
 
   #wrapper {
