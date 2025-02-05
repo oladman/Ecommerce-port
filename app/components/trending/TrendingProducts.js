@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./TrendingProducts.module.css"
+import styles from "./TrendingProducts.module.css";
 import { CiShoppingCart } from "react-icons/ci";
 
 const getTrendingProducts = async () => {
@@ -10,7 +10,9 @@ const getTrendingProducts = async () => {
     });
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch Trending Products. Status: ${res.status}`);
+      throw new Error(
+        `Failed to fetch Trending Products. Status: ${res.status}`
+      );
     }
 
     const products = await res.json();
@@ -21,11 +23,8 @@ const getTrendingProducts = async () => {
   }
 };
 
-  
-
 const TrendingProducts = async () => {
   const trendingProducts = await getTrendingProducts();
-
 
   // Handling the case when data is not fetched properly
   if (!trendingProducts) {
@@ -37,30 +36,32 @@ const TrendingProducts = async () => {
       {trendingProducts.length > 0 ? (
         trendingProducts.map((product) => (
           <Link
-          key={product.id}
-          href={`/Products/${product.id}`}
-          className={styles['coverCard']}
-        >
-          
-            <div className={styles['Top-deals-up']}>
-            <img src={`/images/${product.ProductAttach}`} alt={product.ProductName} />
+            key={product.id}
+            href={`/Products/${product.id}`}
+            className={styles["coverCard"]}
+          >
+            <div className={styles["Top-deals-up"]}>
+              <div className={styles["img-attach"]}>
+                
+                <img
+                  src={`/images/${product.ProductAttach}`}
+                  alt={product.ProductName}
+                />
+              </div>
 
-              <p>
-                NEW 
-              </p>
+              <p>NEW</p>
             </div>
-            <div className={styles['Top-deals-bottom']}>
+            <div className={styles["Top-deals-bottom"]}>
               <h4>{product.Type}&apos;s Footwear</h4>
-              <p className={styles['top-deal-name']}>{product.ProductName}</p>
-              
-                <p className={styles['top-deal-price']}>₦ {product.Price}</p>
-               
-              
-              <button className={styles['Btn']}><CiShoppingCart size={18}/> <p>Add To Cart</p></button>
-            </div>
-          
-        </Link>
+              <p className={styles["top-deal-name"]}>{product.ProductName}</p>
 
+              <p className={styles["top-deal-price"]}>₦ {product.Price}</p>
+
+              <button className={styles["Btn"]}>
+                <CiShoppingCart size={18} className={styles['icon']}/> <p>Add To Cart</p>
+              </button>
+            </div>
+          </Link>
         ))
       ) : (
         <p>No trending products available.</p>
