@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./TrendingProducts.module.css"
+import { CiShoppingCart } from "react-icons/ci";
 
 const getTrendingProducts = async () => {
   try {
@@ -13,7 +14,7 @@ const getTrendingProducts = async () => {
     }
 
     const products = await res.json();
-    return products.slice(0, 4); // Limit the results to the first 4 products
+    return products.slice(0, 8); // Limit the results to the first 4 products
   } catch (error) {
     console.error("Error fetching Trending Products:", error);
     return null; // Handle errors gracefully
@@ -40,7 +41,7 @@ const TrendingProducts = async () => {
           href={`/Products/${product.id}`}
           className={styles['coverCard']}
         >
-          <div className={styles['Top-deal-main']}>
+         
             <div className={styles['Top-deals-up']}>
             <img src={`/images/${product.ProductAttach}`} alt={product.ProductName} />
 
@@ -49,14 +50,14 @@ const TrendingProducts = async () => {
               </p>
             </div>
             <div className={styles['Top-deals-bottom']}>
-              <h4>Men&apos;s Footwear</h4>
+              <h4>{product.Type}&apos;s Footwear</h4>
               <p className={styles['top-deal-name']}>{product.ProductName}</p>
               <div>
                 <p className={styles['top-deal-price']}>₦ {product.Price}</p>
-                <button>Add to cart</button>
+                <button><CiShoppingCart size={18}/> <p>Add to cart</p></button>
               </div>
             </div>
-          </div>
+          
         </Link>
 
         ))

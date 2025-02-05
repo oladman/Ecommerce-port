@@ -40,7 +40,7 @@ const Header = () => {
       {/* Desktop Navigation */}
       <nav className={styles['header-desktop']}>
         <div className={styles['logo-text']}>
-          <Link href="/about" className={styles['link-go-optical']} style={{ textDecoration: "none", color: "#000", fontWeight: "600" }}>
+          <Link href="/" className={styles['link-go-optical']} style={{ textDecoration: "none", color: "#000", fontWeight: "600" }}>
             <p>
               YEFFSO
               <span>
