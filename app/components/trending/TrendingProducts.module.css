@@ -145,6 +145,10 @@
 @media (max-width: 480px) {
   .coverCard {
     gap: 0;
+    width: 40vw; /* Adjust the box width based on viewport */
+    max-width: none; /* Remove max-width restriction */
+    height: 100%; /* Fixed height */
+    min-height: 300px;
   }
   .Top-deals-bottom {
     margin-bottom: 10px;
