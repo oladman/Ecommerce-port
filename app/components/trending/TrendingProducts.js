@@ -41,21 +41,22 @@ const TrendingProducts = async () => {
           href={`/Products/${product.id}`}
           className={styles['coverCard']}
         >
-         
+          
             <div className={styles['Top-deals-up']}>
             <img src={`/images/${product.ProductAttach}`} alt={product.ProductName} />
 
               <p>
-                NEW <span>**</span>
+                NEW 
               </p>
             </div>
             <div className={styles['Top-deals-bottom']}>
               <h4>{product.Type}&apos;s Footwear</h4>
               <p className={styles['top-deal-name']}>{product.ProductName}</p>
-              <div>
+              
                 <p className={styles['top-deal-price']}>₦ {product.Price}</p>
-                <button><CiShoppingCart size={18}/> <p>Add to cart</p></button>
-              </div>
+               
+              
+              <button className={styles['Btn']}><CiShoppingCart size={18}/> <p>Add To Cart</p></button>
             </div>
           
         </Link>

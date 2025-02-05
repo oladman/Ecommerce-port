@@ -26,5 +26,6 @@
     justify-content: center;
     gap: 20px;
     grid-template-columns: 1fr 1fr;
+    overflow: hidden;
   }
 }
