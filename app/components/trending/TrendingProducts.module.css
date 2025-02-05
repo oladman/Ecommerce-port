@@ -53,15 +53,7 @@
   border-radius: 0px 5px 5px 5px;
 }
 
-.Top-deals-up p > span {
-  color: red;
-}
-.Top-deal-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
+
 .Top-deal-main:hover {
   transform: scale(1.025);
 }
@@ -121,6 +113,16 @@
     height: 100%; /* Fixed height */
     max-height: 300px;
   }
+  .img-attach {
+    width: 100%;
+    height: 100%; /* Ensure the image respects the height of its parent */
+  }
+  .img-attach img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the div without stretching */
+    object-position: center;
+  }
   .Top-deals-up {
     flex: 7; /* 80% of the 170px */
     height: 70%;
@@ -129,6 +131,14 @@
   .Top-deals-bottom {
     height: 30%;
     flex: 3;
+  }
+  .Top-deals-bottom h4 {
+    display: none;
+  }
+  .top-deal-name {
+    font-size: 14px;
+    color: #000;
+ 
   }
 }
 
@@ -140,7 +150,7 @@
     margin-bottom: 10px;
     padding-left: 5px;
     padding-right: 5px;
-    gap: 10px;
+    gap: 5px;
   }
   .Top-deals-bottom h4 {
     display: none;
@@ -158,13 +168,13 @@
 
   .Btn {
     font-size: 13px;
-    padding:6px;
+    padding:10px;
     margin-top: 5px;
     border-radius: 5px;
   }
 }
 
-@media (max-width: 280px) {
+@media (max-width: 310px) {
   .Top-deals-up {
     flex: 6; /* 80% of the 170px */
     height: 60%;
