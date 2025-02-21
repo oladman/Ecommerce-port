@@ -1,0 +1,11 @@
+.cover{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+@media (max-width: 768px) {
+    .cover{
+flex-direction: column;
+    }
+}

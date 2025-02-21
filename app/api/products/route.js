@@ -10,7 +10,11 @@ export async function GET() {
       orderBy: {
         id: "desc",
       },
+      include: {
+        images: true, // Fetch linked ProductImages
+      },
     });
+
     return NextResponse.json(products, { status: 200 });
   } catch (error) {
     console.error("Error Fetching Products:", error);

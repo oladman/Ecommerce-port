@@ -1,0 +1,230 @@
+.cart {
+  margin-top: 50px;
+  padding-top: 20px;
+}
+.cart h1 {
+  margin-bottom: 50px;
+}
+
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 50%;
+}
+
+.P-name {
+  font-weight: bold;
+  font-size: 15px;
+  width: 100%;
+}
+.P-details {
+  display: flex;
+  gap: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+
+}
+
+
+.P-details-down{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+
+}
+.P-details-down button{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+width: 200px;
+border:none;
+background-color: transparent;
+margin-left: 20px;
+color: grey;
+}
+.P-details-down button:hover{
+  cursor: pointer;
+}
+.P-price{
+  font-size: 14px;
+
+}
+.P-details p {
+  font-size: 14px;
+  color: grey;
+}
+.center{
+    width: 10%; 
+    color: grey;  
+    font-size: 15px;
+}
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+
+}
+
+.del-btn:hover{
+  cursor: pointer;
+
+}
+.btns button {
+  background-color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+}
+.btns button:hover {
+  background-color: #f2f2f2;
+}
+
+.btns span {
+  padding: 10px;
+  font-size: 14px;
+  color: grey;
+  border: 1px solid #ddd;
+
+}
+
+.Go-back{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ea1179;
+  margin-top: 50px;
+  font-size: 14px;
+}
+.Go-back:hover{
+color: #940349;
+font-size: 16px
+}
+
+/* General row layout for both headings & products */
+.cart-row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+   margin-bottom: 20px;
+
+  }
+  
+  /* Ensures headings match the product row layout */
+  .cart-headings {
+font-size: 14px;
+    border-top: 1px solid #ddd;
+    text-align: left;
+    color: grey;
+  }
+  
+  /* Define column widths */
+  .cart-row div:first-child {
+    flex: 0.6; /* Product Name + Image takes 60% */
+  }
+  
+  .cart-row div:not(:first-child) {
+    flex: 0.4; /* Remaining columns share 40% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .Page-nav-cat{
+    display: flex;
+    align-items: center;
+    background-color: #f2f7f6;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  ._CatName{
+    display: flex;
+  }
+
+
+  
+
+
+
+
+
+
+
+
+
+  .cart-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  /* Cart items (Left Side) */
+  .cart-items {
+    flex: 1; /* Takes most of the space */
+  }
+  
+  /* Order Summary (Right Side) */
+  .order-summary {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    background-color: #f6f6f6;
+    gap: 20px;
+    font-size: 14px;
+  }
+  
+  /* Order Summary Title */
+  .order-summary h3 {
+    font-size: 18px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  .charges{
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    font-size: 12px;
+
+  }
+  /* Checkout Button */
+  .checkout-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ea1179;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #8f0246;
+  }
+
+  
+  @media (max-width: 768px) {
+    .cart {
+      display: none;
+  }
+  .Go-back{
+    display: none;
+  }
+  .order-summary {
+    display: none;
+  }
+
+}

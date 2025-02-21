@@ -8,29 +8,44 @@ datasource db {
 }
 
 model products {
-  id             Int     @id @default(autoincrement())
-  ProductName    String  
-  Price          String  
-  Color          String  
-  ProductDetails String  
-  ProductAttach  String  
-  Type           String? 
+  id           String          @id @default(uuid())
+  name         String
+  price        Float
+  Description  String
+  sizes        String[]
+  colors       String[]
+  Type         String?
+  returnDays   Int
+  slug         String          @unique
+  createdAt    DateTime        @default(now())
+
+  images       ProductImages[] // Relation to ProductImages model
 }
+
+model ProductImages {
+  id         String    @id @default(uuid())
+  product    products  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId  String
+  url        String    // Image URL
+  altText    String?   // Optional alternative text for accessibility
+  position   Int       // Position/order of images
+}
+
 
 model users {
   id           Int    @id @default(autoincrement())
-  FirstName    String 
-  LastName     String 
-  Email        String 
-  PhoneNumber  String 
-  Password     String 
-  DfirstName   String 
-  DlastName    String 
-  DphoneNumber String 
-  Dstreet      String 
-  Ddirections  String 
-  Dcity        String 
-  Dstate       String 
-  Dlocalgva    String 
-  Role         String 
+  FirstName    String
+  LastName     String
+  Email        String
+  PhoneNumber  String
+  Password     String
+  DfirstName   String
+  DlastName    String
+  DphoneNumber String
+  Dstreet      String
+  Ddirections  String
+  Dcity        String
+  Dstate       String
+  Dlocalgva    String
+  Role         String
 }

@@ -1,6 +1,9 @@
 import Link from "next/link";
 import styles from "./TrendingProducts.module.css";
 import { CiShoppingCart } from "react-icons/ci";
+import { useContext } from "react";
+import  CartContext  from "../../context/ProductContext";
+import Button from '../Buttons/Button'
 
 const getTrendingProducts = async () => {
   try {
@@ -16,7 +19,8 @@ const getTrendingProducts = async () => {
     }
 
     const products = await res.json();
-    return products.slice(0, 8); // Limit the results to the first 4 products
+    console.log('TRENDING DATA', products )
+    return products.slice(0, 8); // Limit the results to the first 8 products
   } catch (error) {
     console.error("Error fetching Trending Products:", error);
     return null; // Handle errors gracefully
@@ -24,12 +28,26 @@ const getTrendingProducts = async () => {
 };
 
 const TrendingProducts = async () => {
+ 
   const trendingProducts = await getTrendingProducts();
+  
 
   // Handling the case when data is not fetched properly
   if (!trendingProducts) {
     return <p>Error fetching trending products. Please try again later.</p>;
   }
+
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("en-NG", {
+      style: "currency",
+      currency: "NGN",
+      minimumFractionDigits: 2,
+    })
+      .format(price)
+      .replace("NGN", "₦") // Ensures proper Naira symbol placement
+      .trim();
+  };
 
   return (
     <>
@@ -37,15 +55,18 @@ const TrendingProducts = async () => {
         trendingProducts.map((product) => (
           <Link
             key={product.id}
-            href={`/Products/${product.id}`}
+            href={`/Products/${product.slug}`} // Updated href to match the correct route
+            
             className={styles["coverCard"]}
           >
             <div className={styles["Top-deals-up"]}>
               <div className={styles["img-attach"]}>
-                
                 <img
-                  src={`/images/${product.ProductAttach}`}
-                  alt={product.ProductName}
+                  src={`/images/${product.images.length > 0 ? product.images[0].url : "default-image.jpg"}`}
+                  
+
+                  alt={product.images?.[0]?.altText || "Product Image"}
+
                 />
               </div>
 
@@ -53,14 +74,15 @@ const TrendingProducts = async () => {
             </div>
             <div className={styles["Top-deals-bottom"]}>
               <h4>{product.Type}&apos;s Footwear</h4>
-              <p className={styles["top-deal-name"]}>{product.ProductName}</p>
+              <p className={styles["top-deal-name"]}>{product.name}</p>
 
-              <p className={styles["top-deal-price"]}>₦ {product.Price}</p>
+              <p className={styles["top-deal-price"]}>{formatPrice(product.price)}
 
-              <button className={styles["Btn"]}>
-                <CiShoppingCart size={18} className={styles['icon']}/> <p>Add To Cart</p>
-              </button>
-            </div>
+              
+              </p>
+
+            <Button name=" Add to Cart" product={product} styleType="Btn" /></div>
+            
           </Link>
         ))
       ) : (

@@ -76,13 +76,29 @@
     background-color: #eef2f7;
     border-radius: 50%;
     position: relative;
-    z-index: -999;
+  
+    pointer-events: auto;
 
   }
-  
+  .cart{
+
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #eef2f7;
+    border-radius: 50%;
+    position: relative;
+    z-index: -999;
+    pointer-events: auto;
+
+  }
   .nav-links-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #ea1179;
-    padding: 2px 4px;
+    padding: 8px 8px;
     font-weight: 700;
     border-radius: 50%;
     font-size: 10px;

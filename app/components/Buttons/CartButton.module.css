@@ -1,0 +1,35 @@
+.btn-one {
+  padding: 15px 70px 15px 70px;
+  background-color: #ea1179;
+  border: none;
+  color: #f2f2f2;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 17px;
+}
+.btn-one:hover {
+  background-color: #840241;
+  cursor: pointer;
+}
+.btn-two {
+  padding: 15px 30px 15px 30px;
+  border: none;
+  font-weight: 500;
+  border-radius: 5px;
+  font-size: 17px;
+}
+.btn-two:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+.btn-cover {
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.btn-cover button{
+    border: none;
+   cursor: pointer;
+    background-color: #ffff;
+}

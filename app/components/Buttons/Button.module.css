@@ -1,0 +1,30 @@
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #fcf2f1;
+    color: #fd8071;
+    border: 0.5px solid grey;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+  }
+
+  .Btn button{
+    border: none;
+    background-color: transparent;
+  color: #fd8071;
+
+  }
+.btn-cover{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  @media (max-width: 310px) {
+    .icon {
+      display: none;
+    }
+  }

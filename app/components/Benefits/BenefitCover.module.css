@@ -1,0 +1,26 @@
+.Card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.Card-Text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.Card-Icon{
+    margin-bottom: 20px;
+}
+.Card-Topic{
+    font-weight: bold;
+}
+
+.Card-Description{
+font-size: 13px;
+width: 200px;
+text-align: center;
+line-height: 18px;
+color: #525252;
+}
