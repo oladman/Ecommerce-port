@@ -4,6 +4,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer'
 import CartContextProvider from './context/ProductContext';
 
+
 const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',

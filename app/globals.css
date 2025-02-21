@@ -5,6 +5,7 @@
 }
 :root {
   --background: #ffffff;
+  --backgroundtwo:#f0f0f1;
 }
 
 html,
@@ -37,7 +38,7 @@ body {
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
   }
 }

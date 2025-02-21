@@ -17,8 +17,8 @@
   }
   
   .P-name {
-    font-weight: bold;
-    font-size: 15px;
+    font-size: 12px;
+    font-weight: normal;
   }
   .P-details {
     display: flex;
@@ -45,14 +45,19 @@
   .btns {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border: 1px solid #ddd;
+    justify-content: flex-start;
+    gap: 5px;
   
   }
   .del-btn{
-  
-  padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+ font-size: 12px;
+ border:none;
+ background-color: transparent;
+ color: grey;
+ margin-bottom: 5px;
   
   }
   .del-btn:hover{
@@ -64,23 +69,28 @@
     border: none;
     font-size: 14px;
     cursor: pointer;
-    padding: 10px;
+    padding: 5px;
   }
   .btns button:hover {
     background-color: #f2f2f2;
   }
   
   .btns span {
-    padding: 10px;
+    color: grey;
+    padding: 5px;
     font-size: 14px;
   }
   
   .P-about{
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
   }
 
+  .Discount{
+    font-size: 12px;
+  }
   
   
   
@@ -105,22 +115,61 @@
     
  
     
-    .Page-nav-cat{
+ 
+    .breadcrumb {
       display: flex;
       align-items: center;
+      font-size: 14px;
+      gap: 10px;
+      margin-top: 20px;
       background-color: #f2f7f6;
       padding: 20px;
+      color: #75757a;
       margin-bottom: 20px;
-      font-size: 14px;
     }
-    ._CatName{
-      display: flex;
+    .breadcrumb-link-name{
+      text-decoration: none;
+      margin-right: 5px;
+      color: #75757a;
     }
   
+    .breadcrumb-link-name::after {
+      content: " >";
+      color: #75757a; /* Adjust color */
+    }
+    .breadcrumb-link-name:last-child::after {
+      content: ""; /* Removes ">" from the last item */
+    }
+  
+  .cart h1{
+    font-size: 16px;
+  }
   
     @media (max-width: 768px) {
         .cart {
             display: flex;
             flex-direction: column;
     }
+}
+
+@media (max-width: 540px) {
+  .breadcrumb{
+    display: flex;
+    align-items: center;
+    width: 100%; /* Adjust as needed */
+    height: 50px; /* Set a fixed height */
+    overflow: auto; /* Enable scrolling when text overflows */
+    white-space: nowrap; /* Prevents text from wrapping */
+    text-overflow: ellipsis; /* Optional: Shows "..." when not scrolling */
+    padding: 5px;
+  
+    /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer */
+  }
+  
+  .scrollable-text::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+  }
+
 }

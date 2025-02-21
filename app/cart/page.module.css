@@ -141,17 +141,33 @@ font-size: 14px;
     text-align: center;
   }
   
-  .Page-nav-cat{
+  .breadcrumb {
     display: flex;
     align-items: center;
+    font-size: 14px;
+    gap: 10px;
+    margin-top: 20px;
     background-color: #f2f7f6;
     padding: 20px;
+    color: #75757a;
     margin-bottom: 20px;
-    font-size: 14px;
   }
-  ._CatName{
-    display: flex;
+  .breadcrumb-link-name{
+    text-decoration: none;
+    margin-right: 5px;
+    color: #75757a;
   }
+
+  .breadcrumb-link-name::after {
+    content: " > ";
+    color: #75757a; /* Adjust color */
+  }
+  .breadcrumb-link-name:last-child::after {
+    content: ""; /* Removes ">" from the last item */
+  }
+
+
+
 
 
   
@@ -225,6 +241,28 @@ font-size: 14px;
   }
   .order-summary {
     display: none;
+  }
+
+}
+
+@media (max-width: 540px) {
+  .breadcrumb{
+    display: flex;
+    align-items: center;
+    width: 100%; /* Adjust as needed */
+    height: 50px; /* Set a fixed height */
+    overflow: auto; /* Enable scrolling when text overflows */
+    white-space: nowrap; /* Prevents text from wrapping */
+    text-overflow: ellipsis; /* Optional: Shows "..." when not scrolling */
+    padding: 5px;
+  
+    /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer */
+  }
+  
+  .scrollable-text::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, Edge */
   }
 
 }

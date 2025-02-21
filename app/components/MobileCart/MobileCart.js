@@ -3,7 +3,11 @@ import styles from "./MobileCart.module.css";
 import { useContext } from "react";
 import { CartContext } from "../../context/ProductContext";
 import { GoTrash } from "react-icons/go";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import Link from "next/link";
+import { FaPlus } from "react-icons/fa6";
+import { FaMinus } from "react-icons/fa6";
+import { MdDelete } from "react-icons/md";
+
 
 const MobileCart = () => {
   const {
@@ -28,18 +32,14 @@ const MobileCart = () => {
   return (
     <div id="wrapper">
       <div className={styles["cart"]}>
-        <div className={styles["Page-nav-cat"]}>
-          <div className={styles["_CatName"]}>
-            <p>Home</p>
-            <div>
-              <MdKeyboardArrowRight
-                style={{ display: "flex", alignItems: "center" }}
-              />
-            </div>
+      <div className={styles["breadcrumb"]}>
+            <Link className={styles["breadcrumb-link-name"]} href={"/"}>
+              Home
+            </Link>
+            <Link className={styles["breadcrumb-link-name"]} href={"/cart"}>
+              cart
+            </Link>
           </div>
-
-          <p>Cart</p>
-        </div>
         <h1>Shopping Cart</h1>
 
         {items.length === 0 ? (
@@ -67,29 +67,27 @@ const MobileCart = () => {
                     <div className={styles["P-about"]}>
                       <h2 className={styles["P-name"]}>{product.name}</h2>
                       <div className={styles["P-price"]}>
-                        {formatPrice(product.price)}
+                        {formatPrice(product.price)} <del className={styles["Discount"]}>
+                ₦ {parseInt(product.price) + 5000}.00
+              </del>
                       </div>
                       <p className={styles["stock"]}>in Stock </p>
                       <div className={styles["btns"]}>
                         <button onClick={() => removeOneFromCart(product.id)}>
-                          -
+                          <FaMinus />
                         </button>
                         <span> {product.quantity} </span>
                         <button
                           onClick={() => addOneToCart(product, product.id)}
                         >
-                          +
+                          <FaPlus />
                         </button>
                       </div>
-                      <div className={styles["del-btn"]}>
-                        <GoTrash
-                          size={20}
-                          onClick={() => {
+                      <button className={styles["del-btn"]}  onClick={() => {
                             deleteCart(product.id);
-                          }}
-                        />
-                        Remove Item
-                      </div>
+                          }}>
+                       <MdDelete size={20}/> <p>Remove</p>
+                      </button>
                     </div>
                   </li>
                 );

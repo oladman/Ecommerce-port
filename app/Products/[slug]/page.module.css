@@ -21,15 +21,29 @@
     gap: 10px;
     width: 50%;
   }
-  .Page-nav-cat {
+  .breadcrumb {
     display: flex;
+    align-items: center;
     font-size: 14px;
     gap: 10px;
     margin-top: 50px;
     background-color: #f2f7f6;
     padding: 20px;
+    color: #75757a;
   }
-  
+  .breadcrumb-link-name{
+    text-decoration: none;
+    margin-right: 5px;
+    color: #75757a;
+  }
+
+  .breadcrumb-link-name::after {
+    content: " > ";
+    color: #75757a; /* Adjust color */
+  }
+  .breadcrumb-link-name:last-child::after {
+    content: ""; /* Removes ">" from the last item */
+  }
   .Pprice {
     font-size: 23px;
     font-weight: 550;
@@ -49,11 +63,11 @@
     
   }
   .PColor :nth-child(1) {
-    color: #747474;
     font-size: 14px;
     font-weight: bold;
   }
   .PColor :nth-child(2) {
+
     font-weight: bold;
   }
   .Psize {
@@ -64,11 +78,11 @@
     
   }
   .Psize :nth-child(1) {
-    color: #747474;
     font-size: 14px;
     font-weight: bold;
   }
   .Psize :nth-child(2) {
+
     font-weight: bold;
   }
   .sizes{
@@ -79,12 +93,12 @@
   margin-top: 10px;
   }
   
-  .sizes div{
+  .each-sizes{
       border: 1.5px solid #ebebeb;
       padding: 5px 20px 5px 20px;
       border-radius: 5px;
   }
-  .sizes div:hover{
+  .each-sizes:hover{
   background-color: #f2f2f2;
   }
   
@@ -163,6 +177,8 @@
   }
   .main-product-content-details :nth-child(1) {
     font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ebebeb;
   }
   .main-product-content-details :nth-child(2) {
     font-size: 14px;
@@ -230,7 +246,23 @@
     color: #000;
   }
   
-
+  .images-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent images from wrapping */
+    width: 100%; /* Ensure it takes full width */
+    scroll-snap-type: x mandatory;
+  }
+  
+  .scrollable-images {
+    display: flex; /* Arrange images in a row */
+    gap: 10px; /* Add some space between images */
+  }
+  
+  .product-image {
+    object-fit: cover; /* Ensure images maintain aspect ratio */
+    border-radius: 5px; /* Optional: Add rounded corners */
+  }
+  
 
 
   @media (max-width: 960px) {
@@ -242,19 +274,12 @@
       width: 100%;
     }
 
-    .images{
-  
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      width: 100%;
-    
-    }
     .main-product-content-right {
       flex-direction: column;
       align-items: flex-start;
       gap: 10px;
       width: 100%;
+    
     }
 
   }
@@ -263,12 +288,56 @@
   }
  
   }
+  @media (max-width: 540px) {
+.breadcrumb{
+  display: flex;
+  align-items: center;
+  width: 100%; /* Adjust as needed */
+  height: 50px; /* Set a fixed height */
+  overflow: auto; /* Enable scrolling when text overflows */
+  white-space: nowrap; /* Prevents text from wrapping */
+  text-overflow: ellipsis; /* Optional: Shows "..." when not scrolling */
+  padding: 5px;
+
+  /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer */
+}
+
+.scrollable-text::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+}
+
+  }
   @media (max-width: 480px) {
+    .Main-product-content {
+      margin-top: 2
+      0px;
+      gap: 20px;
+
+    }
     .main-product-content-left {
       gap: 10px;
     }
     .Pname {
-      font-weight: 550;
-      font-size: 23px;
+      font-weight: normal;
+      font-size: 16px;
     }
+    .Pprice {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .main-product-content-right {
+      gap: 5px;
+    
+    }
+    .Psize {
+      margin-top: 5px;  
+    }
+
+    .each-sizes{
+      padding: 5px 10px 5px 10px;
+  }
+
   }

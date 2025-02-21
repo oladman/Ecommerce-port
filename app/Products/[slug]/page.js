@@ -38,53 +38,50 @@ async function page({ params }) {
 
   // Construct image URL
   const imageUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/images/${product.images[0].url}`;
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("en-NG", {
+      style: "currency",
+      currency: "NGN",
+      minimumFractionDigits: 2,
+    })
+      .format(price)
+      .replace("NGN", "₦") // Ensures proper Naira symbol placement
+      .trim();
+  };
 
   return (
     <div id="wrapper">
       <div className={styles["pattern-page"]}>
-        <div className={styles["Page-nav-cat"]}>
-          <div className={styles["_CatName"]}>
-            <p>Home</p>
-            <div>
-              <MdKeyboardArrowRight
-                style={{ display: "flex", alignItems: "center" }}
-              />
-            </div>
-          </div>
-          <div className={styles["_CatName"]}>
-            <p>Men</p>
-            <div>
-              <MdKeyboardArrowRight />
-            </div>
-          </div>
-          <p>{product.name}</p>
+        <div className={styles["breadcrumb"]}>
+          <Link className={styles["breadcrumb-link-name"]} href={"/"}>
+            Home
+          </Link>
+
+          <Link className={styles["breadcrumb-link-name"]} href={"/"}>
+            Men
+          </Link>
+
+          <Link
+            className={styles["breadcrumb-link-name"]}
+            href={`/Products/${product.slug}`}
+          >
+            {product.name}
+          </Link>
         </div>
+
         <div className={styles["Main-product-content"]}>
           <div className={styles["main-product-content-left"]}>
             {product.images?.length > 0 ? (
-              <div className={styles["images"]}>
-                {/* First Image - Big size */}
-                <div className={styles["product-image-container"]}>
-                  <Image
-                    key="first-image"
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/images/${product.images[0].url}`}
-                    alt={product.images[0].altText || "Product Image"}
-                    width={400} // Default width
-                    height={500} // Default height
-                    className={styles["product-image"]}
-                  />
-                </div>
-
-                {/* Other Images - Small size */}
-                <div className={styles["images-two"]}>
-                  {product.images.slice(1).map((image, index) => (
+              <div className={styles["images-container"]}>
+                <div className={styles["scrollable-images"]}>
+                  {product.images.map((image, index) => (
                     <Image
                       key={index}
-                      className={styles["product-image-others"]}
+                      className={styles["product-image"]}
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}/images/${image.url}`}
                       alt={image.altText || "Product Image"}
-                      width={150}
-                      height={150}
+                      width={400} // Adjust to your desired uniform size
+                      height={500}
                     />
                   ))}
                 </div>
@@ -105,10 +102,10 @@ async function page({ params }) {
           <div className={styles["main-product-content-right"]}>
             <h1 className={styles["Pname"]}>{product.name}</h1>
             <div className={styles["Pprice-cover"]}>
+              <p className={styles["Pprice"]}>{formatPrice(product.price)}</p>
               <del className={styles["Discount"]}>
                 ₦ {parseInt(product.price) + 5000}.00
               </del>
-              <p className={styles["Pprice"]}>₦{product.price}</p>
             </div>
             <div className={styles["main-product-content-details"]}>
               <p>Description:</p>
@@ -143,7 +140,7 @@ async function page({ params }) {
                 name=" Add to Cart"
                 styleType="btn-one"
               />
-              <Button name="Buy Now" styleType="btn-two" />
+             
             </div>
             <div className={styles["Delivery-info"]}>
               <Link className={styles["info-link"]} href={"/"}>
