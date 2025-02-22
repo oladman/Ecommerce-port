@@ -28,7 +28,7 @@
   }
   
   .footer-section-one h3 > span {
-    color: #ea1179;
+   color:var(--green);
   }
   
   .footer-section-two {

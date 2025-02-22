@@ -5,7 +5,9 @@
 }
 :root {
   --background: #ffffff;
-  --backgroundtwo:#f0f0f1;
+  --green: #1b4d3e;
+  --lighterGreen:#246854;
+  --lightOrange:#fd8071;
 }
 
 html,

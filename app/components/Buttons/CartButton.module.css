@@ -1,14 +1,14 @@
 .btn-one {
   padding: 15px 70px 15px 70px;
-  background-color: #ea1179;
+  background-color: var(--green);
+  color:var(--lightOrange);
   border: none;
-  color: #f2f2f2;
   font-weight: bold;
   border-radius: 5px;
   font-size: 17px;
 }
 .btn-one:hover {
-  background-color: #840241;
+  background-color:var(--lighterGreen);
   cursor: pointer;
 }
 .btn-two {
