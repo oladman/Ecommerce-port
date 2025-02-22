@@ -303,7 +303,10 @@
     list-style: none;
     
 }
-
+.nav-links-icon {
+margin-right: 10px;
+  
+}
 }
   /* -------- HEADER STYLE END ---------- */
   
