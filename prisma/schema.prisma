@@ -7,45 +7,90 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model products {
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model Product {
   id           String          @id @default(uuid())
   name         String
   price        Float
-  Description  String
+  description  String
   sizes        String[]
   colors       String[]
-  Type         String?
+  type         String?
   returnDays   Int
   slug         String          @unique
   createdAt    DateTime        @default(now())
 
-  images       ProductImages[] // Relation to ProductImages model
+  images       ProductImage[] // Relation to ProductImage model
 }
 
-model ProductImages {
+model ProductImage {
   id         String    @id @default(uuid())
-  product    products  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product    Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId  String
   url        String    // Image URL
   altText    String?   // Optional alternative text for accessibility
   position   Int       // Position/order of images
 }
 
+model User {
+  id            String   @id @default(cuid())
+  name          String?  // ✅ Add this line if you need to store the user's name
+  email         String?  @unique
+  emailVerified DateTime?
+  password      String?  
+  role          UserRole @default(USER)
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
 
-model users {
-  id           Int    @id @default(autoincrement())
-  FirstName    String
-  LastName     String
-  Email        String
-  PhoneNumber  String
-  Password     String
-  DfirstName   String
-  DlastName    String
-  DphoneNumber String
-  Dstreet      String
-  Ddirections  String
-  Dcity        String
-  Dstate       String
-  Dlocalgva    String
-  Role         String
+  // Relation to UserDetails
+  userDetails   UserDetails?
+}
+
+
+model UserDetails {
+  id              String  @id @default(cuid())
+  userId          String  @unique
+  firstName       String?
+  lastName        String?
+  phoneNumber     String?
+  additionalPhone String?
+  deliveryAddress String?
+  city            String?
+  state           String?
+  additionalInfo  String?
+
+  // Relation to User
+  user            User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

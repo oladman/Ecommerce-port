@@ -17,6 +17,8 @@ import { RiChat3Line } from "react-icons/ri";
 import { RiContractLine } from "react-icons/ri";
 import { useContext } from "react";
 import { CartContext } from "../../context/ProductContext";
+import LoginButton from "../Buttons/login-button";
+
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -76,11 +78,13 @@ const Header = () => {
             <div>
               <GrFavorite style={{ color: "#000", fontSize: "20px" }} />
             </div>
-            <Link href={"/"}>
+          
               <div>
+                <LoginButton>
                 <HiOutlineUser style={{ color: "#000", fontSize: "20px" }} />
+                </LoginButton>
               </div>
-            </Link>
+          
 
             <Link href="/cart" className={styles["nav-links-item"]}>
               <PiShoppingCart style={{ color: "#000", fontSize: "20px" }} />
@@ -169,7 +173,9 @@ const Header = () => {
           </div>
           <div className={styles["nav-links-icon"]}>
             <div>
+              <LoginButton>
               <HiOutlineUser style={{ color: "#000", fontSize: "20px" }} />
+              </LoginButton>
             </div>
             <Link href="/cart" className={styles["nav-links-item"]}>
               <PiShoppingCart style={{ color: "#000", fontSize: "20px" }} />

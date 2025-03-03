@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== "production") global.prisma = prisma;
 
 export async function GET() {
   try {
-    const products = await prisma.products.findMany({
+    const products = await prisma.Product.findMany({
       orderBy: {
         id: "desc",
       },

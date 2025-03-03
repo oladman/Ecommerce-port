@@ -6,15 +6,15 @@ if (process.env.NODE_ENV !== "production") global.prisma = prisma;
 
 export async function GET() {
   try {
-    const products = await prisma.products.findMany({
+    const products = await prisma.Product.findMany({
       where: {
-        Type: "belt",  // Add this line to filter products by Type "men"
+        type: "belt", 
       },
       orderBy: {
         id: "desc",
       },
       include: {
-        images: true, // Fetch linked ProductImages
+        images: true, 
       },
     });
     return NextResponse.json(products, { status: 200 });

@@ -1,0 +1,16 @@
+.line-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing */
+    font-size: 12px;
+    color: grey;
+  }
+
+  .line {
+    border: 1px solid #e0e0e0;
+    width: 100px;
+  }
+  
+  .text {
+    white-space: nowrap;
+  }

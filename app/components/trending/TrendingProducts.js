@@ -1,8 +1,5 @@
 import Link from "next/link";
 import styles from "./TrendingProducts.module.css";
-import { CiShoppingCart } from "react-icons/ci";
-import { useContext } from "react";
-import  CartContext  from "../../context/ProductContext";
 import Button from '../Buttons/Button'
 
 const getTrendingProducts = async () => {
@@ -19,7 +16,6 @@ const getTrendingProducts = async () => {
     }
 
     const products = await res.json();
-    console.log('TRENDING DATA', products )
     return products.slice(0, 8); // Limit the results to the first 8 products
   } catch (error) {
     console.error("Error fetching Trending Products:", error);
@@ -73,7 +69,7 @@ const TrendingProducts = async () => {
               <p>NEW</p>
             </div>
             <div className={styles["Top-deals-bottom"]}>
-              <h4>{product.Type}&apos;s Footwear</h4>
+              <h4>{product.type}&apos;s Footwear</h4>
               <p className={styles["top-deal-name"]}>{product.name}</p>
 
               <p className={styles["top-deal-price"]}>{formatPrice(product.price)}

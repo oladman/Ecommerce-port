@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { MdKeyboardArrowRight } from "react-icons/md";
 import { FiShare } from "react-icons/fi";
 import styles from "./page.module.css";
 import { LuHeart } from "react-icons/lu";
-import Button from "@/app/components/Buttons/Button";
 import Link from "next/link";
 import { FaCcVisa } from "react-icons/fa";
 import { FaCcMastercard } from "react-icons/fa6";
@@ -109,7 +107,7 @@ async function page({ params }) {
             </div>
             <div className={styles["main-product-content-details"]}>
               <p>Description:</p>
-              <p>{product.Description}</p>
+              <p>{product.description}</p>
             </div>
 
             <div className={styles["PColor"]}>

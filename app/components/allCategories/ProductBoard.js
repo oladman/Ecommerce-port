@@ -23,7 +23,6 @@ const ProductBoard = async ({
       }
 
       const products = await res.json();
-      console.log('PRODUCTS DATA', products)
       return products.slice(0, limit); // Limit the results to the specified number of products
     } catch (error) {
       console.error(`Error fetching products for ${category}:`, error);
