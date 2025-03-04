@@ -2,7 +2,7 @@ import AuthCover from "../components/auth/Auth-Cover";
 import LoginForm from "../components/auth/Login-Form";
 import styles from "./page.module.css"
 import { GiMorgueFeet } from "react-icons/gi";
-const page = () => {
+const Page = () => {
   return (
     <div className={styles["Login-wrapper-cover"]}>
     <AuthCover  
@@ -17,4 +17,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
