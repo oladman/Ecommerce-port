@@ -126,7 +126,7 @@ const LoginForm = () => {
         </div>
 
         <div className={styles["dont-have"]}>
-          <p>Don't have an account? </p>
+          <p>Don &apos; t have an account? </p>
 
           <Link style={{ color: "#1b4d3e" }} href="/register">
             
