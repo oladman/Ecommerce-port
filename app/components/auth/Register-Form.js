@@ -117,25 +117,8 @@ const RegisterForm = () => {
         </NormalButton>
       </form>
       <div className={styles["bottom-style"]}>
-        <div className={styles["line-container"]}>
-        <DividerWithText text="Or Login with" />
-        </div>
-        <div className={styles["social-cover-style"]}>
-          <NormalButton
-            className={styles["social-cover"]}
-            onClick={() => onClick("google")}
-          >
-            <FcGoogle className={styles["social-icon"]} size={30} />
-            <p>Google</p>
-          </NormalButton>
-          <NormalButton
-            className={styles["social-cover"]}
-            onClick={() => onClick("github")}
-          >
-            <FaGithub className={styles["social-icon"]} size={30} />
-            <p>Github</p>
-          </NormalButton>
-        </div>
+        
+      
 
         <div className={styles["dont-have"]}>
           <p>Already have an account ? </p>
