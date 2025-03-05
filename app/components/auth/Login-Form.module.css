@@ -1,3 +1,4 @@
+
 .overal-form-cover{
   width: 100%;
   max-width: 500px;
@@ -15,7 +16,6 @@
    padding: 15px;
    border: none;
    border-radius: 10px;
-   font-size: 16px;
    background-color: #f5f7f9;
    color:grey;
    font-size: 12px;
@@ -64,13 +64,13 @@
    color: #fff;
    border: none;
    border-radius: 10px;
-   cursor: pointer;
    font-size: 16px;
    transition: background 0.3s ease-in-out;
    margin-top: 30px;
  }
  
  .login-btn:hover {
+  cursor: pointer;
    background: var(--lighterGreen);
  }
  
@@ -144,13 +144,49 @@ margin-top: 20px;
  }
 
  @media (max-width: 480px) {
-  .social-cover {
-    width: 100%;
-  }
 
   .overal-form-cover{
+    width: 100%;
+    margin: auto;
     padding: 10px;
 
   }
+
+  .form-cover{
+
+    min-width: 100%; /* Ensures it doesn’t shrink below 200px */
+    width: 100%; /* Makes it responsive */
+    max-width: 100%; /* Adjust this based on your design */
+    
+  }
+  .Login-input-style {
+    min-width: 100%; /* Ensures it doesn’t shrink below 200px */
+    width: 100%; /* Makes it responsive */
+    max-width: 100%; /* Adjust this based on your design */
+    border-radius: 0;
+    font-size: 12px;
+  }
+  .social-cover-style {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .social-cover {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    min-width: 100%; /* Ensures it doesn’t shrink below 200px */
+    width: 100%; /* Makes it responsive */
+    max-width: 100%; /* Adjust this based on your design */
+    gap: 10px;
+    border-radius: 0;
+  }
+  .login-btn {
+    margin-top: 20px;
+  }
+
 }
 

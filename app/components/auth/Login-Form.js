@@ -80,7 +80,7 @@ const LoginForm = () => {
           className={styles["Login-input-style"]}
           placeholder="Password"
         />
-        <p className={styles["forgot-password"]}>forget password?</p>
+        <p className={styles["forgot-password"]}>Forget password?</p>
 
         <Message
           type="error"

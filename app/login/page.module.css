@@ -4,6 +4,14 @@
   align-items: center;
   justify-content: center;
   flex-grow: 1; /* Ensures it takes up available space */
-  margin: 100px 0; /* 100px margin at top and bottom */
+  margin: 20px 0; /* 100px margin at top and bottom */
   box-sizing: border-box;
+}
+
+
+.Auth-cover{
+  margin-top: 20px;
+  }
+@media (max-width: 480px) {
+
 }

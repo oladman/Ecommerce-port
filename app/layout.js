@@ -1,7 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
+import ClientLayout from "./components/layout/ClientLayout"; // Import new client component
 import CartContextProvider from "./context/ProductContext";
 
 const poppins = Poppins({
@@ -21,13 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${poppins.variable} page-container`}>
         <CartContextProvider>
-          <header className="header">
-            <Header />
-          </header>
-          <main className="content">{children}</main>
-          <footer className="footer">
-            <Footer />
-          </footer>
+          <ClientLayout>{children}</ClientLayout> {/* Wrap everything inside ClientLayout */}
         </CartContextProvider>
       </body>
     </html>

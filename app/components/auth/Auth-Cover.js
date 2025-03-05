@@ -9,7 +9,7 @@ const AuthCover = ({
   HeaderTextThree
 }) => {
   return (
-    <div className={styles[className] || ""}>
+    <div className={className}>
       <div className={styles["topper"]}>
         <div className={styles["icon-headerText"]} >
           <p>{icon}</p>
