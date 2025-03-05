@@ -112,7 +112,7 @@
    text-align: center;
    gap: 5px;
    margin-top: 15px;
-   font-size: 12px;
+   font-size: 14px;
    margin-bottom: 50px;
  }
  .dont-have p {
@@ -184,9 +184,14 @@ margin-top: 20px;
     gap: 10px;
     border-radius: 0;
   }
+  .social-cover p{
+    font-size: 16px;
+  }
   .login-btn {
     margin-top: 20px;
   }
-
+  .dont-have {
+     margin-bottom: 20px;
+   }
 }
 

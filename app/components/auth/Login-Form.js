@@ -113,14 +113,14 @@ const LoginForm = () => {
             className={styles["social-cover"]}
             onClick={() => onClick("google")}
           >
-            <FcGoogle className={styles["social-icon"]} size={20} />
+            <FcGoogle className={styles["social-icon"]} size={30} />
             <p>Google</p>
           </NormalButton>
           <NormalButton
             className={styles["social-cover"]}
             onClick={() => onClick("github")}
           >
-            <FaGithub className={styles["social-icon"]} size={20} />
+            <FaGithub className={styles["social-icon"]} size={30} />
             <p>Github</p>
           </NormalButton>
         </div>
