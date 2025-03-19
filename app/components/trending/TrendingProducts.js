@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./TrendingProducts.module.css";
-import Button from '../Buttons/Button'
+import NormalButton from "../Buttons/Normal-Button";
 
 const getTrendingProducts = async () => {
   try {
@@ -77,7 +77,8 @@ const TrendingProducts = async () => {
               
               </p>
 
-            <Button name=" Add to Cart" product={product} styleType="Btn" /></div>
+            <NormalButton  className={styles["Btn"]}>Add to Cart </NormalButton>
+            </div>
             
           </Link>
         ))

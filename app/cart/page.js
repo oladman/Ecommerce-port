@@ -9,6 +9,7 @@ import MobileCart from "../components/MobileCart/MobileCart";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { HiArrowLongLeft } from "react-icons/hi2";
+import CheckoutButton from "../components/Buttons/CheckoutButton";
 
 const Page = () => {
   const {
@@ -155,17 +156,18 @@ const Page = () => {
                   <p className={styles["charges"]}>
                     Including delivery charges
                   </p>
-                  <button className={styles["checkout-btn"]}>Checkout</button>
+                  
+                  <CheckoutButton className={styles["checkout-btn"]}/>
                 </div>
               </div>
             </>
           )}
         </div>
         <div className={styles["Go-back"]}>
-          <HiArrowLongLeft />{" "}
+          <HiArrowLongLeft />
           <Link
             href={"/"}
-            style={{ textDecoration: "none", color: "#ea1179" }}
+            style={{ textDecoration: "none", color: "#246854" }}
             size={30}
           >
             Continue Shopping

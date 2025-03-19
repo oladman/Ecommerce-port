@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
+import CheckoutButton from "../Buttons/CheckoutButton";
 
 
 const MobileCart = () => {
@@ -90,9 +91,11 @@ const MobileCart = () => {
                       </button>
                     </div>
                   </li>
+                  
                 );
               })}
             </ul>
+            <CheckoutButton className={styles["checkout-btn"]}/>
           </>
         )}
       </div>

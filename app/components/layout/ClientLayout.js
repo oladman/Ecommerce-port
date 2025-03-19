@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
-  const hideHeaderFooterRoutes = ["/register", "/login"];
+  const hideHeaderFooterRoutes = ["/register", "/login", "/checkout"];
   const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(pathname);
 
   return (

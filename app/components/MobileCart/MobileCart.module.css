@@ -1,179 +1,220 @@
 .cart {
-    display: none;
-    margin-top: 50px;
-    padding-top: 20px;
-  }
-  .cart h1 {
-    margin-bottom: 50px;
-  }
-  
-  
-  .top {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-    width: 50%;
-  }
-  
-  .P-name {
-    font-size: 16px;
-    font-weight: normal;
-  }
-  .P-details {
-    display: flex;
-    align-items: center;
-  }
-  .P-price{
-    font-size: 13px;
-      color: grey; 
-  
-  }
-  .stock{
-    font-size: 12px;
-    color: #3E7B27;
-  }
-  .P-details p {
-    font-size: 14px;
-    color: grey;
-  }
-  .P-details img{
-    object-fit: cover;
-    object-position: center;
-  }
-  .center{
-      width: 10%; 
-      color: grey;  
-      font-size: 15px;
-  }
-  .btns {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 5px;
-  
-  }
-  .del-btn{
-    display: flex;
-    align-items: center;
-    gap: 10px;
- font-size: 12px;
- border:none;
- background-color: transparent;
- color: grey;
- margin-bottom: 5px;
-  
-  }
-  .del-btn:hover{
-    cursor: pointer;
-  
-  }
-  .btns button {
-    background-color: #fff;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    padding: 5px;
-  }
-  .btns button:hover {
-    background-color: #f2f2f2;
-  }
-  
-  .btns span {
-    color: grey;
-    padding: 5px;
-    font-size: 14px;
-  }
-  
-  .P-about{
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 5px;
-  }
+  display: none;
+  margin-top: 50px;
+  padding-top: 20px;
+}
 
-  .Discount{
-    font-size: 12px;
+.cart h1 {
+  margin-bottom: 50px;
+}
+
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 50%;
+}
+
+.P-name {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.P-details {
+  display: flex;
+  align-items: center;
+}
+
+.P-price {
+  font-size: 13px;
+  color: grey;
+
+}
+
+.stock {
+  font-size: 12px;
+  color: #3E7B27;
+}
+
+.P-details p {
+  font-size: 14px;
+  color: grey;
+}
+
+.P-details img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.center {
+  width: 10%;
+  color: grey;
+  font-size: 15px;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+
+}
+
+.del-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  border: none;
+  background-color: transparent;
+  color: grey;
+  margin-bottom: 5px;
+
+}
+
+.del-btn:hover {
+  cursor: pointer;
+
+}
+
+.btns button {
+  background-color: #fff;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.btns button:hover {
+  background-color: #f2f2f2;
+}
+
+.btns span {
+  color: grey;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.P-about {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Discount {
+  font-size: 12px;
+}
+
+
+
+
+
+/* General row layout for both headings & products */
+.cart-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+/* Ensures headings match the product row layout */
+.cart-headings {
+  font-weight: bold;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+
+
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 10px;
+  margin-top: 20px;
+  background-color: #f2f7f6;
+  padding: 20px;
+  color: #75757a;
+  margin-bottom: 20px;
+}
+
+.breadcrumb-link-name {
+  text-decoration: none;
+  margin-right: 5px;
+  color: #75757a;
+}
+
+.breadcrumb-link-name::after {
+  content: " >";
+  color: #75757a;
+  /* Adjust color */
+}
+
+.breadcrumb-link-name:last-child::after {
+  content: "";
+  /* Removes ">" from the last item */
+}
+
+.cart h1 {
+  font-size: 16px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.checkout-btn:hover {
+  cursor: pointer;
+  background: var(--lighterGreen);
+}
+
+@media (max-width: 768px) {
+  .cart {
+    display: flex;
+    flex-direction: column;
   }
-  
-  
-  
-  
-  
-  /* General row layout for both headings & products */
-  .cart-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      border-bottom: 1px solid #ddd;
-      margin-bottom: 20px;
-    }
-    
-    /* Ensures headings match the product row layout */
-    .cart-headings {
-      font-weight: bold;
-      background-color: #f8f8f8;
-      border-bottom: 1px solid #ddd;
-      text-align: center;
-    }
-    
- 
-    
- 
-    .breadcrumb {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      gap: 10px;
-      margin-top: 20px;
-      background-color: #f2f7f6;
-      padding: 20px;
-      color: #75757a;
-      margin-bottom: 20px;
-    }
-    .breadcrumb-link-name{
-      text-decoration: none;
-      margin-right: 5px;
-      color: #75757a;
-    }
-  
-    .breadcrumb-link-name::after {
-      content: " >";
-      color: #75757a; /* Adjust color */
-    }
-    .breadcrumb-link-name:last-child::after {
-      content: ""; /* Removes ">" from the last item */
-    }
-  
-  .cart h1{
-    font-size: 16px;
-  }
-  
-    @media (max-width: 768px) {
-        .cart {
-            display: flex;
-            flex-direction: column;
-    }
 }
 
 @media (max-width: 540px) {
-  .breadcrumb{
+  .breadcrumb {
     display: flex;
     align-items: center;
-    width: 100%; /* Adjust as needed */
-    height: 50px; /* Set a fixed height */
-    overflow: auto; /* Enable scrolling when text overflows */
-    white-space: nowrap; /* Prevents text from wrapping */
-    text-overflow: ellipsis; /* Optional: Shows "..." when not scrolling */
+    width: 100%;
+    /* Adjust as needed */
+    height: 50px;
+    /* Set a fixed height */
+    overflow: auto;
+    /* Enable scrolling when text overflows */
+    white-space: nowrap;
+    /* Prevents text from wrapping */
+    text-overflow: ellipsis;
+    /* Optional: Shows "..." when not scrolling */
     padding: 5px;
-  
+
     /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none; /* For Internet Explorer */
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer */
   }
-  
+
   .scrollable-text::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+    display: none;
+    /* Hide scrollbar for Chrome, Safari, Edge */
   }
 
 }
