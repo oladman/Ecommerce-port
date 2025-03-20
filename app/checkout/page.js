@@ -20,10 +20,59 @@ const CheckoutPage = () => {
   const router = useRouter();
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const [selectedPayment, setSelectedPayment] = useState(null);
   const [tempPayment, setTempPayment] = useState(null); // Temporary selection before confirmation
   const [showPaymentOptions, setShowPaymentOptions] = useState(false);
+
+  const {
+    items,
+    addOneToCart,
+    removeOneFromCart,
+    deleteCart,
+    getProductQuantity,
+  } = useContext(CartContext); // ✅ Move useContext to the top level
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      if (!session) {
+        router.push("/login");
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/user/details/${session.user.id}`);
+        if (!res.ok) throw new Error("Failed to fetch user details");
+
+        const data = await res.json();
+        setUserDetails(data);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (status === "authenticated") {
+      fetchUserDetails();
+    } else if (status === "unauthenticated") {
+      router.push("/login");
+    }
+  }, [session, status, router]);
+
+  if (loading) return <p>Loading...</p>;
+
+    const formatPrice = (price) => {
+    return new Intl.NumberFormat("en-NG", {
+      style: "currency",
+      currency: "NGN",
+      minimumFractionDigits: 2,
+    })
+      .format(price)
+      .replace("NGN", "₦") // Ensures proper Naira symbol placement
+      .trim();
+  };
+
+
 
   const handleConfirmPayment = () => {
     setSelectedPayment(tempPayment); // Update selected payment method
@@ -58,56 +107,8 @@ const CheckoutPage = () => {
     },
   ];
 
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      if (!session) {
-        router.push("/login"); // ✅ Redirect if not logged in
-        return;
-      }
-
-      try {
-        const res = await fetch(`/api/user/details/${session.user.id}`);
-        if (!res.ok) throw new Error("Failed to fetch user details");
-
-        const data = await res.json();
-        setUserDetails(data); // ✅ Save user details
-      } catch (error) {
-        console.error("Error fetching user details:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (status === "authenticated") {
-      fetchUserDetails();
-    } else if (status === "unauthenticated") {
-      router.push("/login"); // ✅ Redirect to login if not authenticated
-    }
-  }, [session, status, router]);
-
-  if (loading) return <p>Loading...</p>; // ✅ Show loading state
-
-  const {
-    items,
-    addOneToCart,
-    removeOneFromCart,
-    deleteCart,
-    getProductQuantity,
-  } = useContext(CartContext);
-
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat("en-NG", {
-      style: "currency",
-      currency: "NGN",
-      minimumFractionDigits: 2,
-    })
-      .format(price)
-      .replace("NGN", "₦") // Ensures proper Naira symbol placement
-      .trim();
-  };
-
   return (
-    <div id="wrapper"> 
+    <div id="wrapper">
       <nav className={styles["header-desktop"]}>
         <div className={styles["logo-text"]}>
           <Link href="/" className={styles["link-go-optical"]} style={{ textDecoration: "none", color: "#000", fontWeight: "600" }}>
