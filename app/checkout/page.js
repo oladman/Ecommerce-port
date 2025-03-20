@@ -172,7 +172,7 @@ const CheckoutPage = () => {
             <div className={styles["warning-box"]}>
               <div>
                 <GoAlertFill size={20} style={{ color: "#FFE066" }} />
-                <p>You haven't added your shipping details yet.</p>
+                <p>You haven&apos;t added your shipping details yet.</p>
               </div>
 
               <Link
