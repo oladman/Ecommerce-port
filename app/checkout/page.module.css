@@ -104,6 +104,7 @@
   padding: 10px;
   border-radius: 10px;
   border-left: 15px solid #ff5733;
+  margin-top: 20px;
 }
 .warning-box div {
   display: flex;
@@ -448,5 +449,9 @@
   }
   .logo-icon {
     font-size: 20px;
+  }
+
+  .warning-box div {
+    font-weight: 500;
   }
 }

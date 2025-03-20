@@ -6,6 +6,8 @@
 
 .cart h1 {
   margin-bottom: 50px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 
@@ -28,7 +30,7 @@
 }
 
 .P-price {
-  font-size: 13px;
+  font-size: 15px;
   color: grey;
 
 }
@@ -161,17 +163,14 @@
   /* Removes ">" from the last item */
 }
 
-.cart h1 {
-  font-size: 16px;
-}
 
 .checkout-btn {
   width: 100%;
-  padding: 15px;
+  padding: 18px;
   background: var(--green);
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 16px;
   transition: background 0.3s ease-in-out;
   margin-top: 10px;
