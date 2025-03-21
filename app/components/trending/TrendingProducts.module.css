@@ -149,7 +149,7 @@
     width: 40vw; /* Adjust the box width based on viewport */
     max-width: none; /* Remove max-width restriction */
     height: 100%; /* Fixed height */
-    min-height: 300px;
+    min-height: 350px;
   }
   .Top-deals-bottom {
     margin-bottom: 10px;

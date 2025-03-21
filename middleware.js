@@ -14,61 +14,35 @@ export default auth((req) => {
   const isLoggedIn = !!req.auth;
   const { pathname } = nextUrl;
 
-  console.log('The URL:', pathname);
-
-  // Check if the route starts with any of the public routes
-  const isPublicRoute = publicRoutes.some(route => pathname.startsWith(route));
-
-  // Check if it's an API auth route
-  const isApiAuthRoute = apiAuthPrefix.some(route => pathname.startsWith(route));
-
-  // Check if it's an auth route (like /login or /register)
-  const isAuthRoute = authRoutes.includes(pathname);
-
-  // Check if the route is the /settings page (protected route)
-  const isSettingsRoute = pathname === '/';
-  
-  
-
-  // Handle API Auth Routes
-  if (isApiAuthRoute) {
-    return null;  // Allow API auth routes
+  // Allow API authentication routes
+  if (apiAuthPrefix.some(route => pathname.startsWith(route))) {
+    return null;
   }
 
-  // Handle Auth Routes (e.g., /login, /register)
-  if (isAuthRoute) {
+  // Allow access to authentication pages like /login, /register, /error
+  if (authRoutes.includes(pathname)) {
     if (isLoggedIn) {
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
-    return null;  // Allow access to login or register if not logged in
+    return null;
   }
 
-  
-
-  // Handle Public Routes (e.g., /api/country/[id])
-  if (isPublicRoute && !isSettingsRoute) {
-    return null;  // Allow access to public routes
+  // Allow all public routes
+  if (publicRoutes.some(route => pathname.startsWith(route))) {
+    return null;
   }
 
-  // Protect the /settings route
-  if ( !isLoggedIn && isSettingsRoute ) {
+  // ✅ Restrict only "/checkout"
+  if (pathname === "/checkout" && !isLoggedIn) {
     return Response.redirect(new URL("/login", nextUrl));
   }
 
-  // Redirect to login if the user is not logged in and trying to access a protected route
-  if (!isLoggedIn) {
-    return Response.redirect(new URL("/login", nextUrl));
-  }
-
-  return null;  // Allow access if logged in
+  return null; // Allow access to everything else
 });
 
 export const config = {
   matcher: [
-    '/((?!.+\\.[\\w]+$|_next).*)', // Match all requests that are not static files or _next routes
-    '/',  // Root path
-    '/api/products/:path*',  // Match all /api/country/[id] routes, including dynamic IDs
-    '/', // Ensure /settings is matched by middleware
-    '/(api|trpc)(.*)',  // General API and TRPC route matching
+    "/checkout", // ✅ Protect only the checkout page
+    "/(api|trpc)(.*)", // Match API and TRPC routes
   ],
 };
