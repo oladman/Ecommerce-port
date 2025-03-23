@@ -1,10 +1,8 @@
 .cover-image-category{
     display: flex;
     flex-direction: column;
-    margin-top: 70px;
-    margin-bottom: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .cover-image-category > p{
     font-size: 18px;
@@ -25,5 +23,6 @@
  
     .cover-image-category > p{
         margin-left: 0;
+        font-size: 16px;
     }
   }
