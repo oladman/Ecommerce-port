@@ -1,0 +1,26 @@
+/* page.module.css */
+.carouselImg {
+    max-width: 1200px;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+  
+.carousel-container{
+    margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+    .carousel-container{
+        margin-top: 70px;
+    }
+
+    .carouselImg {
+        max-width: 350px;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+      }
+}
