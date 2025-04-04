@@ -30,7 +30,6 @@ export default async function Home() {
         </div>
       )}
 
-      {/* The rest of the page remains visible for all users */}
    
       <Categories />
       <Benefit />
