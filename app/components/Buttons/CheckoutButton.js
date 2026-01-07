@@ -2,6 +2,8 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { HiArrowRight } from "react-icons/hi2";
+import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 
 
 const CheckoutButton = ({ children, className }) => {
@@ -20,8 +22,10 @@ const CheckoutButton = ({ children, className }) => {
 
   return (
     <button onClick={handleCheckout} className={className}>
-      {children || "Proceed to Checkout"}
-    </button>
+  <MdOutlineShoppingCartCheckout size={20} />
+  {children || <span>Proceed to Checkout</span>}
+  <HiArrowRight size={18} />
+</button>
   );
 };
 

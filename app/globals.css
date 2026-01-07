@@ -2,35 +2,50 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #aaa #222;
 }
 :root {
   --background: #ffffff;
+  --background-alternative: #f7f7f7;
   --green: #1b4d3e;
-  --lighterGreen:#246854;
-  --lightOrange:#fff;
-  --white-text:#fd8071;
-
-
+  --lighterGreen: #00ab55;
+  --lightOrange: #fd8071;
 }
 
-html,
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 6px;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
 body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  overflow-y: auto; /* Allow normal vertical scrolling */
+  overflow-x: clip;
+  overflow-y: auto;
 }
 
 body {
-  background: var(--background);
+  background: var(--background-alternative);
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #wrapper {
-  max-width: 1280px;
+  max-width: 1536px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 2.5rem;
@@ -41,7 +56,6 @@ body {
   padding: 20px; /* Optional: Add some padding for aesthetics */
 }
 
-
 .page-container {
   display: flex;
   flex-direction: column;
@@ -50,25 +64,24 @@ body {
 
 .header {
   height: 80px; /* Adjust as needed */
-
 }
-
-
 
 .footer {
   height: 80px; /* Adjust as needed */
-
 }
+@media (max-width: 900px) {
+  #wrapper {
+    max-width: 900px;
 
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 
 @media (max-width: 480px) {
   #wrapper {
     max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
     padding-left: 0.625rem;
     padding-right: 0.625rem;
   }
 }
-
-

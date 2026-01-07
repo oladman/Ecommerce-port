@@ -2,7 +2,6 @@
 import styles from "./MobileCart.module.css";
 import { useContext } from "react";
 import { CartContext } from "../../context/ProductContext";
-import { GoTrash } from "react-icons/go";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
@@ -19,16 +18,12 @@ const MobileCart = () => {
     getProductQuantity,
   } = useContext(CartContext);
 
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat("en-NG", {
+    const formatPrice = (price) =>
+    new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "NGN",
+      currency: "USD",
       minimumFractionDigits: 2,
-    })
-      .format(price)
-      .replace("NGN", "₦") // Ensures proper Naira symbol placement
-      .trim();
-  };
+    }).format(price);
 
   return (
     <div id="wrapper">
@@ -41,7 +36,6 @@ const MobileCart = () => {
               cart
             </Link>
           </div>
-        <h1>Shopping Cart</h1>
 
         {items.length === 0 ? (
           <p>Your cart is empty.</p>
@@ -69,25 +63,26 @@ const MobileCart = () => {
                       <h2 className={styles["P-name"]}>{product.name}</h2>
                       <div className={styles["P-price"]}>
                         {formatPrice(product.price)} <del className={styles["Discount"]}>
-                ₦ {parseInt(product.price) + 5000}.00
+                 {parseInt(product.price) + 100}.00
               </del>
                       </div>
                       <p className={styles["stock"]}>in Stock </p>
-                      <div className={styles["btns"]}>
-                        <button onClick={() => removeOneFromCart(product.id)}>
-                          <FaMinus />
-                        </button>
-                        <span> {product.quantity} </span>
-                        <button
-                          onClick={() => addOneToCart(product, product.id)}
-                        >
-                          <FaPlus />
-                        </button>
-                      </div>
+                      <div className={styles["qty-box"]}>
+  <button onClick={() => removeOneFromCart(product.id)}>
+    <FaMinus />
+  </button>
+
+  <span className={styles["qty"]}>{product.quantity}</span>
+
+  <button onClick={() => addOneToCart(product, product.id)}>
+    <FaPlus />
+  </button>
+</div>
+
                       <button className={styles["del-btn"]}  onClick={() => {
                             deleteCart(product.id);
                           }}>
-                       <MdDelete size={20}/> <p>Remove</p>
+                       <MdDelete size={20} className={styles["icon"]} /> <p>Remove</p>
                       </button>
                     </div>
                   </li>
@@ -95,7 +90,14 @@ const MobileCart = () => {
                 );
               })}
             </ul>
-            <CheckoutButton className={styles["checkout-btn"]}/>
+         
+
+            <CheckoutButton className={styles["checkout-btn"]}>
+  Proceed to Checkout · {formatPrice(
+    items.reduce((t, i) => t + i.price * i.quantity, 0)
+  )}
+</CheckoutButton>
+
           </>
         )}
       </div>

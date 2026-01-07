@@ -1,195 +1,140 @@
-.coverCard {
-  display: flex;
-  width: 100%;
-  max-width: 250px;
-  height: 100%; /* Fixed height */
-  max-height: 300px;
-  text-decoration: none;
-  box-sizing: border-box;
-  color: #000;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+.best-sellers{
+  background-color: #fff;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  background-color: #f2f2f2;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
 }
 
-.Top-deals-up {
-  position: relative;
-  flex: 7; /* 80% of the 170px */
-  overflow: hidden;
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-  height: 70%; /* Ensure the height is set */
-  border-radius: 10px 10px 0 0;
-}
-
-.img-attach {
+.product-card {
   width: 100%;
-  height: 100%; /* Ensure the image respects the height of its parent */
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  transition: transform 0.3s ease;
 }
-.img-attach img {
-  height: 300px;
-  width: 250px;
-  object-fit: cover; /* Ensures the image covers the div without stretching */
-  object-position: center;
+
+.product-card:hover {
+  transform: translateY(-6px);
 }
-.Top-deals-up > p {
-  background-color: #ea1179;
-  display: flex;
-  justify-content: center;
-  width: 40px;
-  padding: 2px;
-  color: white;
-  font-weight: 500;
-  font-size: 10px;
-  margin-left: 10px;
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  border-radius: 0px 5px 5px 5px;
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  margin-bottom: 16px;
+}
+
+.product-image {
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 
-.Top-deal-main:hover {
-  transform: scale(1.025);
+
+
+
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+font-family: "Inter", sans-serif;
+  margin-bottom: 50px;
 }
 
-.Top-deals-bottom {
+
+.product-info {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0; 
   padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 10px;
-  height: 30%;
-  flex: 3;
 }
 
-.Top-deals-bottom h4 {
-  margin-bottom: 5px;
-  margin-top: 5px;
-  font-size: 15px;
-}
-
-
-.Btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  background-color: var(--green);
-  color:var(--lightOrange);
-  border: 0.5px solid grey;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.top-deal-price {
-  padding: 10px 0 0 0;
-  margin: 0;
-  font-size: 17px;
-  font-weight: 600;
-}
 
 .top-deal-name {
-  padding: 0;
-  margin: 0;
-  font-size: 12px;
-  text-wrap: wrap;
-  white-space: wrap;
-  color: grey;
+  font-size: 16px;
+  font-weight: 400;
+  color:#0C0407;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  }
+
+
+.rating {
+  font-size: 14px;
+  color: #ff9800;
 }
 
-@media (max-width: 768px) {
-  .coverCard {
-    width: 40vw; /* Adjust the box width based on viewport */
-    max-width: none; /* Remove max-width restriction */
-    height: 100%; /* Fixed height */
-    max-height: 300px;
-  }
-  .img-attach {
-    width: 100%;
-    height: 100%; /* Ensure the image respects the height of its parent */
-  }
-  .img-attach img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the div without stretching */
-    object-position: center;
-  }
-  .Top-deals-up {
-    flex: 7; /* 80% of the 170px */
-    height: 70%;
-  }
+.price-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
 
-  .Top-deals-bottom {
-    height: 30%;
-    flex: 3;
-  }
-  .Top-deals-bottom h4 {
-    display: none;
-  }
+.price {
+  font-size: 14px;
+  color:#0C0407;
+}
+
+.old-price {
+  font-size: 14px;
+  color: #808080;
+  text-decoration: line-through;
+}
+
+
+
+.skeleton {
+  background: #e5e7eb;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(245,245,245,0) 0%, rgba(245,245,245,0.5) 50%, rgba(245,245,245,0) 100%);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(150%); }
+}
+
+
+
+
+@media (max-width: 600px) {
   .top-deal-name {
-    font-size: 14px;
-    color: #000;
- 
-  }
-}
+  font-size: 16px;
 
+}
+}
+/* Responsive */
 @media (max-width: 480px) {
-  .coverCard {
-    gap: 0;
-    width: 40vw; /* Adjust the box width based on viewport */
-    max-width: none; /* Remove max-width restriction */
-    height: 100%; /* Fixed height */
-    min-height: 350px;
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    row-gap: 20px;
   }
-  .Top-deals-bottom {
-    margin-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    gap: 5px;
-  }
-  .Top-deals-bottom h4 {
-    display: none;
-  }
-  .top-deal-name {
-    font-size: 14px;
-    color: #000;
-  }
-  .top-deal-price {
-    padding: 5px 0 0 0;
-    margin: 0;
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .Btn {
-    font-size: 13px;
-    padding:10px;
-    margin-top: 5px;
-    border-radius: 5px;
-  }
+  .price-wrapper {
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
 }
-
-@media (max-width: 310px) {
-  .Top-deals-up {
-    flex: 6; /* 80% of the 170px */
-    height: 60%;
-  }
-
-  .Top-deals-bottom {
-    height: 40%;
-    flex: 4;
-  }
-  .icon {
-    display: none;
+  .image-wrapper {
+    height: 150px;
   }
 }

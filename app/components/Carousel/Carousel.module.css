@@ -8,7 +8,146 @@
   }
   
 .carousel-container{
-    margin-top: 50px;
+    margin-top: 70px;
+}
+.new-carousel{
+    margin-top: 80px;
+    display: flex;
+    width: 100%;
+    height: 710px;
+    gap: 5px;
+}
+.carousel-style{
+    position: relative;
+}
+.carousel-left{
+    width: 60%;
+}
+.carousel-right {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+}
+.carousel-style div{
+position: absolute;
+display: flex;
+flex-direction: column;
+gap: 40px;
+align-items: center;
+top: 250px;
+bottom: 10px;
+left: 200px;
+}
+.carousel-style img{
+    height: 708px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.carousel-style div > p{
+font-size: 35px;
+
+}
+.carousel-link{
+    text-decoration: none;
+    font-size: 12px;
+    color: #000;
+    font-weight: 600;
+    border-bottom: 2px solid #000;
+}
+
+.carousel-two img{
+object-position: center;
+object-fit: cover;
+width: 100%;
+height: 250px;
+}
+.carousel-three img{
+object-position: center;
+object-fit: cover;
+width: 100%;
+height: 250px;
+}
+.carousel-four img{
+object-position: center;
+object-fit: cover;
+width: 100%;
+height: 200px;
+}
+.carousel-five img{
+object-position: center;
+object-fit: cover;
+width: 100%;
+height: 200px;
+}
+.carousel-inner{
+    display: flex;
+    width: 100%;
+    gap: 5px;
+}
+.carousel-two{
+position: relative;
+}
+.carousel-three{
+position: relative;
+}
+.carousel-four{
+    width: 50%;
+    position: relative;
+}
+.carousel-five {
+    width: 50%;
+    position: relative;
+}
+.carousel-two div{
+position: absolute;
+display: flex;
+flex-direction: column;
+gap: 10px;
+align-items: center;
+top: 70px;
+bottom: 10px;
+left: 20px;
+font-size: 30px;
+
+}
+
+.carousel-three div{
+position: absolute;
+display: flex;
+flex-direction: column;
+gap: 10px;
+align-items: center;
+top: 70px;
+bottom: 10px;
+left: 20px;
+font-size: 30px;
+
+}
+.carousel-four div {
+position: absolute;
+display: flex;
+flex-direction: column;
+gap: 10px;
+align-items: center;
+top: 70px;
+bottom: 10px;
+left: 20px;
+font-size: 30px;
+
+}
+.carousel-five div {
+position: absolute;
+display: flex;
+flex-direction: column;
+gap: 10px;
+align-items: center;
+top: 70px;
+bottom: 10px;
+left: 20px;
+font-size: 30px;
+
 }
 
 @media (max-width: 480px) {

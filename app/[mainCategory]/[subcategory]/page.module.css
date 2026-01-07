@@ -1,0 +1,15 @@
+.category-cover {
+ margin-top: 100px;
+ padding-top: 20px;
+  background-color: #ffffff;
+}
+.title{
+    margin:10px 0;
+}
+
+@media (max-width: 900px) {
+ .category-cover {
+ margin-top: 80px;
+ 
+}
+}

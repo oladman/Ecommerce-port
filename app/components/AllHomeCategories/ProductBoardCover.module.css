@@ -1,0 +1,92 @@
+.List-start {
+    margin-top: 10px;
+    background-color: white;
+   
+  }
+  
+  .Category-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #000;
+    padding: 10px;
+    background-color: #e8e8e6;
+  }
+  
+  .Category-name {
+    font-weight: 600;
+    padding-bottom: 10px;
+    width: fit-content;
+    border-bottom-width: 3.1px;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .Category-angle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: grey;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+  }
+  
+  .Cat-Scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    overflow-x: auto;
+  scroll-behavior: smooth;
+    white-space: nowrap;
+  }
+  
+  
+  .Scroll-wrapper {
+  position: relative;
+}
+
+/* Scroll buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+
+  border: 1px solid #ddd;
+  background: white;
+  color: #333;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.scroll-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Left & right positioning */
+.scroll-btn.left {
+  left: -18px;
+}
+
+.scroll-btn.right {
+  right: -18px;
+}
+
+/* 🔥 Hide arrows on touch devices */
+@media (hover: none) {
+  .scroll-btn {
+    display: none;
+  }
+}

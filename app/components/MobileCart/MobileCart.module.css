@@ -2,6 +2,7 @@
   display: none;
   margin-top: 50px;
   padding-top: 20px;
+  background-color: #fff;
 }
 
 .cart h1 {
@@ -9,7 +10,6 @@
   font-size: 18px;
   font-weight: 500;
 }
-
 
 .top {
   display: flex;
@@ -20,8 +20,8 @@
 }
 
 .P-name {
-  font-size: 16px;
-  font-weight: normal;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .P-details {
@@ -30,14 +30,15 @@
 }
 
 .P-price {
-  font-size: 15px;
-  color: grey;
-
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
 }
 
 .stock {
-  font-size: 12px;
-  color: #3E7B27;
+  color: #1a7f37;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .P-details p {
@@ -48,6 +49,9 @@
 .P-details img {
   object-fit: cover;
   object-position: center;
+  border-radius: 8px;
+  background: #f8f8f8;
+  padding: 0.5rem;
 }
 
 .center {
@@ -61,32 +65,46 @@
   align-items: center;
   justify-content: flex-start;
   gap: 5px;
-
 }
 
 .del-btn {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 12px;
-  border: none;
-  background-color: transparent;
-  color: grey;
-  margin-bottom: 5px;
-
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: #888;
 }
 
 .del-btn:hover {
   cursor: pointer;
+}
+.qty-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+}
+.subtotal {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
 
+.qty {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .btns button {
   background-color: #fff;
   border: none;
-  font-size: 14px;
   cursor: pointer;
   padding: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .btns button:hover {
@@ -94,9 +112,12 @@
 }
 
 .btns span {
-  color: grey;
-  padding: 5px;
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
 }
 
 .P-about {
@@ -107,20 +128,22 @@
 }
 
 .Discount {
-  font-size: 12px;
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 200;
 }
 
-
-
-
+.cart-row + .cart-row {
+  border-top: 1px solid #eee;
+}
 
 /* General row layout for both headings & products */
 .cart-row {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  border-bottom: 1px solid #ddd;
   margin-bottom: 20px;
+  padding: 0.8rem 0;
 }
 
 /* Ensures headings match the product row layout */
@@ -130,9 +153,6 @@
   border-bottom: 1px solid #ddd;
   text-align: center;
 }
-
-
-
 
 .breadcrumb {
   display: flex;
@@ -163,22 +183,27 @@
   /* Removes ">" from the last item */
 }
 
-
 .checkout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
   width: 100%;
-  padding: 18px;
-  background: var(--green);
-  color: #fff;
-  border: none;
+  background: var(--lighterGreen);
   border-radius: 5px;
-  font-size: 16px;
+  border: none;
   transition: background 0.3s ease-in-out;
-  margin-top: 10px;
+  color: #fff;
+  position: sticky;
+  bottom: 0;
+  padding: 1rem;
 }
-
+.icon{
+  color: #666;
+}
 .checkout-btn:hover {
   cursor: pointer;
-  background: var(--lighterGreen);
+  background: var(--green);
 }
 
 @media (max-width: 768px) {
@@ -215,5 +240,4 @@
     display: none;
     /* Hide scrollbar for Chrome, Safari, Edge */
   }
-
 }

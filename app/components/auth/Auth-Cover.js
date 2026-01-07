@@ -1,19 +1,23 @@
 import styles from "./Auth-Cover.module.css";
-
+import Image from "next/image";
 const AuthCover = ({
   children,
   className,
-  icon,
-  HeaderText,
   HeaderTextTwo,
   HeaderTextThree
 }) => {
   return (
     <div className={className}>
       <div className={styles["topper"]}>
+        <Image
+          src="/assets/logos/main-logo.png"
+          alt="Main Logo"
+          width={150} // replace with your desired width
+          height={50} // replace with your desired height
+          style={{ objectPosition:'center', objectFit:'cover' }}
+        />
         <div className={styles["icon-headerText"]} >
-          <p>{icon}</p>
-          <h1>{HeaderText}</h1>
+        
         </div>
         <h2>{HeaderTextTwo}</h2>
         <p>{HeaderTextThree}</p>

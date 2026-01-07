@@ -1,0 +1,13 @@
+.main-category-page {
+ margin-top: 100px;
+ padding-top: 20px;
+  background-color: #ffffff;
+}
+
+
+@media (max-width: 900px) {
+ .main-category-page {
+ margin-top: 80px;
+ 
+}
+}

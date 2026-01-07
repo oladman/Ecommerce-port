@@ -8,7 +8,7 @@ const Page = () => {
   return (
     <AuthCover
         icon={<GiMorgueFeet size={30} />}
-        HeaderText="YEFFSO"
+        HeaderText="YeffsoStore"
         HeaderTextTwo="Register Account"
         HeaderTextThree=""
         className={styles["Auth-cover"]}

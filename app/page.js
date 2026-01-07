@@ -1,17 +1,19 @@
-import Categories from "./components/categories/Categories";
+import HomeTopCategories from "./components/AllHomeCategories/HomeTopCategories/Categories";
 import Trending from "./components/trending/Trending";
-import ProductBoardCover from "./components/allCategories/ProductBoardCover";
+import ProductBoardCover from "./components/AllHomeCategories/ProductBoardCover";
 import Benefit from "./components/Benefits/Benefit";
-import { auth, signOut } from "../auth"; // ✅ Import from next-auth
+import { auth, signOut } from "../auth"; 
 import styles from "./page.module.css";
 import Carousel from "./components/Carousel/Carousel";
+import HeroSection from "./components/hero/HeroSection";
 
 export default async function Home() {
   const session = await auth(); // Get session data
 
   return (
     <div id="wrapper">
-         <Carousel />
+         {/*<Carousel /> */}
+         <HeroSection />
       {/* Show only if user is logged in */}
       {session && (
         <div className={styles["login-check"]}>
@@ -31,10 +33,11 @@ export default async function Home() {
       )}
 
    
-      <Categories />
-      <Benefit />
+      <HomeTopCategories />
+     {/* <Benefit /> */}
       <Trending />
       <ProductBoardCover />
     </div>
+    
   );
 }

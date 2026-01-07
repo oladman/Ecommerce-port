@@ -1,25 +1,33 @@
-import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+// app/api/products/route.js or pages/api/products.js
 
-const prisma = global.prisma || new PrismaClient();
-if (process.env.NODE_ENV !== "production") global.prisma = prisma;
+import { PrismaClient } from '@prisma/client';
+import { NextResponse } from 'next/server';
+
+const globalForPrisma = globalThis;
+const prisma = globalForPrisma.prisma || new PrismaClient();
+
+if (process.env.NODE_ENV !== 'production') {
+  globalForPrisma.prisma = prisma;
+}
 
 export async function GET() {
   try {
-    const products = await prisma.Product.findMany({
+    const products = await prisma.product.findMany({
       orderBy: {
-        id: "desc",
+        id: 'desc',
       },
       include: {
-        images: true, // Fetch linked ProductImages
+        images: true,
+        variants: true,   // Include size/color info if defined
+        category: true,   // Optional: show which category each product belongs to
       },
     });
 
     return NextResponse.json(products, { status: 200 });
   } catch (error) {
-    console.error("Error Fetching Products:", error);
+    console.error('Error fetching products:', error);
     return NextResponse.json(
-      { message: "Internal Server Error" },
+      { message: 'Internal Server Error' },
       { status: 500 }
     );
   }

@@ -12,8 +12,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "E-commerce",
-  description: "Shop Latest Footwear",
+  title: "YeffsoStore - E-commerce, Clothing, Shoes, Bags",
+  description: "Shop Latest wears",
 };
 
 export default function RootLayout({ children }) {

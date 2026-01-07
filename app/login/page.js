@@ -7,8 +7,6 @@ export const dynamic = "force-dynamic";
 const Page = () => {
   return (
     <AuthCover
-      icon={<GiMorgueFeet size={30} />}
-      HeaderText="YEFFSO"
       HeaderTextTwo="Welcome Back"
       HeaderTextThree="Please login to your account"
       className={styles["Auth-cover"]}

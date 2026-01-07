@@ -1,18 +1,16 @@
+import { Suspense } from "react";
 import TrendingProducts from "./TrendingProducts";
 import styles from "./Trending.module.css";
+import TrendingProductsWrapper from "./TrendingProductsWrapper";
 
 const Trending = () => {
   return (
-    <div>
+    <>
       <div className={styles["Top-deals"]}>
-        <h3>New Trending</h3>
-
-        <div  className={styles["Top-deal-cover"]}>
-          
-          <TrendingProducts />
-        </div>
+        <h3>Featured Trending</h3>
+        <TrendingProductsWrapper />
       </div>
-    </div>
+    </>
   );
 };
 
