@@ -3,14 +3,8 @@
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { FaRegUser } from "react-icons/fa";
-import { GrFavorite } from "react-icons/gr";
 import { PiShoppingCart } from "react-icons/pi";
-import { IoMan, IoWoman } from "react-icons/io5";
 import { useState, useEffect, useContext } from "react";
-import { CiBoxes } from "react-icons/ci";
-import { MdFavoriteBorder } from "react-icons/md";
-import { FaBaby } from "react-icons/fa";
-import { PiBelt } from "react-icons/pi";
 import { RiChat3Line, RiContractLine } from "react-icons/ri";
 import { CartContext } from "../../context/ProductContext";
 import LoginButton from "../Buttons/login-button";
@@ -18,7 +12,7 @@ import Image from "next/image";
 import { FaUserAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-import { FiCpu, FiShoppingBag, FiEdit3, FiHome, FiActivity, FiMonitor  } from "react-icons/fi";
+import { FiCpu, FiShoppingBag, FiEdit3, FiHome, FiActivity, FiMonitor } from "react-icons/fi";
 
 
 const Header = () => {
@@ -47,95 +41,97 @@ const Header = () => {
       <nav className={styles["header-desktop"]}>
         <div className={styles["header-inner"]}>
           <div className={styles["logo-text"]}>
-             {/* Hamburger Category Menu */}
-<div className={styles["cat-hamburger-wrapper"]}>
-  <div className={styles["cat-hamburger-icon"]}>
-    ☰
-  </div>
+            {/* Hamburger Category Menu */}
+            <div className={styles["cat-hamburger-wrapper"]}>
+              <div className={styles["cat-hamburger-icon"]}>
+                ☰
+              </div>
 
-  <div className={styles["cat-hamburger-menu"]}>
-  <div className={styles["cat-main-item"]}>
-    <Link href="/electronics" className={styles["cat-main-link"]}>
-      <FiCpu className={styles["cat-icon"]} />
-      Electronics
-    </Link>
-    <div className={styles["cat-sub-menu"]}>
-      <Link href="/electronics/homeaudio">Home & Audio</Link>
-      <Link href="/electronics/camera">Camera & Photo </Link>
-      <Link href="/electronics/accessories ">Accessories</Link>
-    </div>
-  </div>
-  <div className={styles["cat-main-item"]}>
-    <Link href="/computers" className={styles["cat-main-link"]}>
-      <FiMonitor className={styles["cat-icon"]} />
-      Computers
-    </Link>
-    <div className={styles["cat-sub-menu"]}>
-      <Link href="/computers/laptops">Laptops</Link>
-      <Link href="/computers/tablets">Tablets</Link>
-       <Link href="/computers/mobiles">Mobiles</Link>
-      <Link href="/computers/monitors">Monitors</Link>
-      <Link href="/computers/printers">Printers</Link>
-      <Link href="/computers/servers">Servers</Link>
-       <Link href="/computers/accessories ">Accessories</Link>
-    </div>
-  </div>
-  <div className={styles["cat-main-item"]}>
-    <Link href="/fashion" className={styles["cat-main-link"]}>
-      <FiShoppingBag className={styles["cat-icon"]} />
-      Fashion
-    </Link>
-    <div className={styles["cat-sub-menu"]}>
-      <Link href="/fashion/men">Men</Link>
-      <Link href="/fashion/women">Women</Link>
-      <Link href="/fashion/kids">Kids</Link>
-    </div>
-  </div>
+              <div className={styles["cat-hamburger-menu"]}>
+                <div className={styles["cat-main-item"]}>
+                  <Link href="/electronics" className={styles["cat-main-link"]}>
+                    <FiCpu className={styles["cat-icon"]} />
+                    Electronics
+                  </Link>
+                  <div className={styles["cat-sub-menu"]}>
+                    <Link href="/electronics/homeaudio">Home & Audio</Link>
+                    <Link href="/electronics/camera">Camera & Photo </Link>
+                    <Link href="/electronics/accessories ">Accessories</Link>
+                  </div>
+                </div>
+                <div className={styles["cat-main-item"]}>
+                  <Link href="/computers" className={styles["cat-main-link"]}>
+                    <FiMonitor className={styles["cat-icon"]} />
+                    Computers
+                  </Link>
+                  <div className={styles["cat-sub-menu"]}>
+                    <Link href="/computers/laptops">Laptops</Link>
+                    <Link href="/computers/tablets">Tablets</Link>
+                    <Link href="/computers/mobiles">Mobiles</Link>
+                    <Link href="/computers/monitors">Monitors</Link>
+                    <Link href="/computers/printers">Printers</Link>
+                    <Link href="/computers/servers">Servers</Link>
+                    <Link href="/computers/accessories ">Accessories</Link>
+                  </div>
+                </div>
+                <div className={styles["cat-main-item"]}>
+                  <Link href="/fashion" className={styles["cat-main-link"]}>
+                    <FiShoppingBag className={styles["cat-icon"]} />
+                    Fashion
+                  </Link>
+                  <div className={styles["cat-sub-menu"]}>
+                    <Link href="/fashion/men">Men</Link>
+                    <Link href="/fashion/women">Women</Link>
+                    <Link href="/fashion/kids">Kids</Link>
+                  </div>
+                </div>
 
-  <div className={styles["cat-main-item"]}>
-    <Link href="/arts" className={styles["cat-main-link"]}>
-      <FiEdit3 className={styles["cat-icon"]} />
-      Arts & Crafts
-    </Link>
-    <div className={styles["cat-sub-menu"]}>
-      <Link href="/arts/crafting">Crafting</Link>
-      <Link href="/arts/fabrics">Fabrics</Link>
-      <Link href="/arts/painting">Painting & Drawing</Link>
-    </div>
-  </div>
+                <div className={styles["cat-main-item"]}>
+                  <Link href="/arts" className={styles["cat-main-link"]}>
+                    <FiEdit3 className={styles["cat-icon"]} />
+                    Arts & Crafts
+                  </Link>
+                  <div className={styles["cat-sub-menu"]}>
+                    <Link href="/arts/crafting">Crafting</Link>
+                    <Link href="/arts/fabrics">Fabrics</Link>
+                    <Link href="/arts/painting">Painting & Drawing</Link>
+                  </div>
+                </div>
 
-  <div className={styles["cat-main-item"]}>
-    <Link href="/homekitchen" className={styles["cat-main-link"]}>
-      <FiHome className={styles["cat-icon"]} />
-      Home & Kitchen
-    </Link>
-    <div className={styles["cat-sub-menu"]}>
-      <Link href="/homekitchen/homedecoration">Home Decorations</Link>
-      <Link href="/homekitchen/kitchendinning">Kitchen & Dining</Link>
-      <Link href="/homekitchen/furniture">Furniture</Link>
-      <Link href="/homekitchen/beddingbath">Bedding & Bath</Link>
-    </div>
-  </div>
+                <div className={styles["cat-main-item"]}>
+                  <Link href="/homekitchen" className={styles["cat-main-link"]}>
+                    <FiHome className={styles["cat-icon"]} />
+                    Home & Kitchen
+                  </Link>
+                  <div className={styles["cat-sub-menu"]}>
+                    <Link href="/homekitchen/homedecoration">Home Decorations</Link>
+                    <Link href="/homekitchen/kitchendinning">Kitchen & Dining</Link>
+                    <Link href="/homekitchen/furniture">Furniture</Link>
+                    <Link href="/homekitchen/beddingbath">Bedding & Bath</Link>
+                  </div>
+                </div>
 
-  <div className={styles["cat-main-item"]}>
-    <Link href="/sports" className={styles["cat-main-link"]}>
-      <FiActivity className={styles["cat-icon"]} />
-      Sports
-    </Link>
-    <div className={styles["cat-sub-menu"]}>
-      <Link href="/sports/fitness">Fitness & Exercise</Link>
-      <Link href="/sports/accessories">Sports Accessories</Link>
-    </div>
-  </div>
-</div>
+                <div className={styles["cat-main-item"]}>
+                  <Link href="/sports" className={styles["cat-main-link"]}>
+                    <FiActivity className={styles["cat-icon"]} />
+                    Sports
+                  </Link>
+                  <div className={styles["cat-sub-menu"]}>
+                    <Link href="/sports/fitness">Fitness & Exercise</Link>
+                    <Link href="/sports/accessories">Sports Accessories</Link>
+                  </div>
+                </div>
+              </div>
 
-</div>
-           
-            <Link className={styles["new-header-link"]} href="/" >SHOP</Link>
+            </div>
+
+
             <Link className={styles["new-header-link"]} href="/" >PAGES</Link>
             <Link className={styles["new-header-link"]} href="/" >FEATURES</Link>
             <Link className={styles["new-header-link"]} href="/" >BLOG</Link>
           </div>
+          
+
           <div>
             <Link href="/" >
               <Image
@@ -170,10 +166,9 @@ const Header = () => {
                 </div>
               </Link>
 
-
-
             </div>
           </div> </div>
+          
       </nav>
 
       {/* Mobile Navigation */}
@@ -210,6 +205,8 @@ const Header = () => {
 
         {/* MENU */}
         <div className={`${styles["mobile-menu"]} ${menuOpen ? styles["open"] : ""}`}>
+
+
           <hr className={styles["mobile-divider"]} />
           <p className={styles["mobile-menu-section"]}>Categories</p>
 
@@ -230,6 +227,12 @@ const Header = () => {
             <li><Link href="/terms"><RiContractLine /> Terms & Conditions</Link></li>
           </ul>
         </div>
+                  {menuOpen && (
+  <div
+    className={styles["mobile-backdrop"]}
+    onClick={toggleMenu}
+  />
+)}
       </nav>
 
     </>

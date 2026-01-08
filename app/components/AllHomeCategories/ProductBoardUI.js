@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./ProductBoard.module.css";
+import Image from "next/image";
 
 export default function ProductBoardUI({ products, imagePath = "/images/" }) {
   return (
@@ -12,10 +13,12 @@ export default function ProductBoardUI({ products, imagePath = "/images/" }) {
           >
             <div className={styles["ProductImagecatp"]}>
               <div className={styles["image-open"]}>
-                <img
-                  src={`${imagePath}/${Product.images?.[0]?.url || "default-image.jpg"}`}
-                  alt={Product.images?.[0]?.altText || "Product Image"}
-                />
+                <Image
+  src={`${imagePath}${Product.images?.[0]?.url || "default-image.jpg"}`}
+  alt={Product.images?.[0]?.altText || Product.name}
+  fill
+  sizes="(max-width: 768px) 50vw, 200px"
+/>
               </div>
             </div>
 

@@ -28,7 +28,7 @@ const categories = [
     imageSrc: "/assets/category/kid1.jpg",
     altText: "Toys",
     backgroundColor: "#C4E1F6",
-    categoryName: "Toys",
+    categoryName: "Kids",
   },
 ];
 

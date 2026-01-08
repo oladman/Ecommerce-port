@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  height: 88px;
 }
 
 .header-inner {
@@ -32,6 +33,7 @@
 font-size: 18px;
 }
 .new-header-link{
+  position: relative;
   text-decoration: none;
   font-weight: 600;
   text-align: left;
@@ -43,6 +45,20 @@ font-size: 18px;
   transition-timing-function: ease;
   color: #000;
   font-size: 13px;
+}
+.new-header-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #16a34a;
+  transition: width 0.3s ease;
+}
+
+.new-header-link:hover::after {
+  width: 100%;
 }
 .logo-text {
   display: flex;
@@ -132,23 +148,24 @@ font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   font-size: 14px;
-  background-color: #00ab55;
+  background-color: var(--brand-green);
   border-radius: 10px;
   text-decoration: none;
-  padding: 5px 20px 5px 10px;
+   gap: 12px;
+  padding: 6px 18px 6px 10px;
 }
-
+.Cart-cover:hover {
+  background-color: #15803d;
+}
 .inner-cart {
   display: flex;
   flex-direction: column;
-  gap: 5px;
   align-items: flex-start;
 }
 .inner-cart p:nth-child(1) {
   color: #fff;
-  font-weight: bold;
+  font-weight:500;
 }
 .inner-cart p:nth-child(2) {
   color: #fff;
@@ -188,11 +205,11 @@ font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fe0000;
-  padding: 8px 8px;
+  background-color: #dc2626; 
+  font-size: 10px;
+  padding: 6px;
   font-weight: 700;
   border-radius: 50%;
-  font-size: 10px;
   position: absolute;
   top: 3px;
   right: 5px;
@@ -344,8 +361,10 @@ font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
+   padding: 12px 16px;
   background: #fff;
+  position: relative;
+  z-index: 1000;
 }
 
 .mobile-left {
@@ -363,7 +382,9 @@ font-size: 18px;
   text-decoration: none;
   color: #000;
 }
-
+.mobile-logo img {
+  height: 32px;
+}
 .mobile-logo-icon {
   font-size: 22px;
   color: var(--green);
@@ -387,24 +408,31 @@ font-size: 18px;
   position: absolute;
   top: 0;
   right: 0;
-  background:#00ab55;
+  background: var(--brand-green);
   color: #fff;
   font-size: 10px;
-  padding: 3px 6px;
+
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 50%;
 }
+
 /* ================= MOBILE NAV ONLY ================= */
 
 #mobile-hamburger-nav {
   display: none;
 }
 .mobile-hamburger-icon {
-  width: 18px;
-  height: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+    width: 24px;
+  height: 20px;
 }
 
 .mobile-hamburger-icon span {
@@ -426,39 +454,39 @@ font-size: 18px;
 .mobile-hamburger-icon.open span:nth-child(3) {
   transform: translateY(-10px) rotate(-45deg);
 }
+
 .mobile-menu {
   position: fixed;
   top: 64px;
   left: 0;
   width: 100%;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  position: fixed;
+  z-index: 1001;
   background: #fff;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 20px 18px;
 
   transform: translateY(-120%);
-  opacity: 0;
-  visibility: hidden;
-
-  transition: all 0.4s ease;
-  z-index: 998;
+  transition: transform 0.35s ease;
 }
 
 .mobile-menu.open {
   transform: translateY(0);
-  opacity: 1;
-  visibility: visible;
 }
+
 .mobile-menu-section {
-  font-size: 12px;
-  color: grey;
-  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 12px;
+
 }
 
 .mobile-menu-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  font-size: 15px;
+
+  gap: 18px;
 }
 
 .mobile-menu-list li {
@@ -472,11 +500,18 @@ font-size: 18px;
   text-decoration: none;
   color: #000;
   font-weight: 500;
-}
 
+   padding: 12px 8px;
+  border-radius: 8px;
+}
+.mobile-menu-list a:active {
+  background: #f3f4f6;
+}
 .mobile-divider {
-  margin: 16px 0;
-  border: 0.5px solid #f2f2f2;
+  border: none;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 20px 0;
 }
 
 .main-logo{
@@ -538,10 +573,10 @@ font-size: 18px;
   align-items: center;
   gap: 10px;
   padding: 12px 15px;
-  font-weight: 400;
   color: #333;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .cat-main-link:hover {
@@ -577,12 +612,24 @@ font-size: 18px;
 .cat-sub-menu a {
   display: block;
   padding: 10px 15px;
-  color: #333;
   text-decoration: none;
+  font-size: 12px;
+  color: #555;
+}
+.cat-main-item:hover {
+  background-color: #fafafa;
 }
 
 .cat-sub-menu a:hover {
   background: #f1f1f1;
+}
+
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
+  z-index: 999;
 }
 
 @media (max-width: 960px) {

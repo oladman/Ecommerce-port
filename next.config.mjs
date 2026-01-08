@@ -1,12 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-      domains: ['localhost'], // Allow localhost for image loading
-    },
-  };
-  
-  export default nextConfig;
-  
+  images: {
+    domains: ['localhost', 'yeffsostore.vercel.app'],
+  },
+};
 
-
-  
+export default nextConfig;

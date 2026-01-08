@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import TrendingProducts from "./TrendingProducts";
 import styles from "./Trending.module.css";
 import TrendingProductsWrapper from "./TrendingProductsWrapper";
 

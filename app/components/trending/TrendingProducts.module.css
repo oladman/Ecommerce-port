@@ -12,11 +12,16 @@
   width: 100%;
   text-decoration: none;
   font-family: "Inter", sans-serif;
-  transition: transform 0.3s ease;
+  background: #fff;
+  border-radius: 14px;
+  padding-bottom: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.15);
 }
 
 .image-wrapper {
@@ -28,22 +33,27 @@
 
 .product-image {
   object-fit: cover;
-  border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: none;
 }
-
-
-
 
 
 .section-title {
-  text-align: center;
-  font-size: 42px;
-  font-weight: 700;
-font-family: "Inter", sans-serif;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  position: relative;
 }
 
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #16a34a;
+  margin: 12px auto 0;
+  border-radius: 999px;
+}
 
 .product-info {
   display: flex;
@@ -53,17 +63,20 @@ font-family: "Inter", sans-serif;
   min-width: 0; 
   padding-left: 10px;
 }
-
+.top-deal-name:hover {
+  text-decoration: underline;
+}
 
 .top-deal-name {
-  font-size: 16px;
-  font-weight: 400;
-  color:#0C0407;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
   display: block;
+   font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  line-height: 1.4;
   }
 
 
@@ -74,18 +87,19 @@ font-family: "Inter", sans-serif;
 
 .price-wrapper {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
 }
 
 .price {
-  font-size: 14px;
-  color:#0C0407;
+  font-size: 16px;
+  font-weight: 700;
+  color: #16a34a; /* subtle success green */
 }
 
 .old-price {
-  font-size: 14px;
-  color: #808080;
+  font-size: 13px;
+  color: #9ca3af;
   text-decoration: line-through;
 }
 
@@ -129,12 +143,17 @@ font-family: "Inter", sans-serif;
     gap: 10px;
     row-gap: 20px;
   }
-  .price-wrapper {
-  flex-direction: column;
-  gap: 12px;
-  align-items: flex-start;
-}
+
   .image-wrapper {
     height: 150px;
+  }
+
+    .price-wrapper {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .price {
+    font-size: 14px;
   }
 }

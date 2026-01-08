@@ -1,219 +1,107 @@
-/* ================================
-   SCROLL CONTAINER (OWNED BY ARROWS)
-================================ */
-.Cat-Scroll {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.Cat-Scroll::-webkit-scrollbar {
-  display: none;
-}
-
-/* ================================
-   PRODUCT ROW (NO OVERFLOW HERE)
-================================ */
-.Products-Panelcat {
-  display: flex;
-  gap: 14px;
-  scroll-snap-type: x mandatory;
-}
-
-/* ================================
+/* ==============================
    PRODUCT CARD
-================================ */
+============================== */
 .productcatp {
   display: flex;
   flex-direction: column;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-  max-width: 200px;
-  min-width: 200px;
-  margin-left: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 5px;
-
-  scroll-snap-align: start;
+  width: 200px;
   flex-shrink: 0;
   overflow: hidden;
+
+  scroll-snap-align: start;
 }
 
-.productcatp:hover .ProductImagecatp {
-  transform: scale(1.025);
+.productcatp:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
 }
 
 .Link-catp {
   text-decoration: none;
+  color: inherit;
 }
 
-/* ================================
+/* ==============================
    IMAGE
-================================ */
-.image-open {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-open > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 200ms ease-in-out;
-}
-
+============================== */
 .ProductImagecatp {
-  max-width: 100%;
   height: 185px;
   overflow: hidden;
   position: relative;
 }
 
-/* ================================
-   BADGE
-================================ */
-.Instockcatp {
-  background-color: rgb(62, 228, 62);
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  color: white;
-  border-radius: 10px;
-  padding: 2px 6px;
-  font-size: 12px;
+.image-open {
+  width: 100%;
+  height: 100%;
 }
 
-/* ================================
+.image-open img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.productcatp:hover .image-open img {
+  transform: scale(1.06);
+}
+
+/* ==============================
+   BADGE
+============================== */
+.Instockcatp {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #22c55e;
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+/* ==============================
    TEXT
-================================ */
+============================== */
 .ProductTextcatp {
   display: flex;
   flex-direction: column;
-  margin-top: 5px;
-  gap: 5px;
+  gap: 6px;
+  padding: 10px;
 }
 
 .ProductNamecatp {
-  margin: 0;
-  padding: 0 10px;
-  font-size: 13px;
-  color: #313133;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #1f2937;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .MainPricecatp {
+  font-size: 16px;
   font-weight: 600;
-  font-size: 18px;
-  margin-left: 10px;
-  color: #000;
+  color: #111;
 }
 
 .del-style {
   font-size: 12px;
-  color: grey;
-  margin-left: 10px;
+  color: #9ca3af;
 }
 
-/* ================================
-   SKELETON (FIXED & OPTIMIZED)
-================================ */
-.skeleton {
-  position: relative;
-  overflow: hidden;
-  background-color: #eee;
-}
-
-.skeleton::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.6),
-    transparent
-  );
-  transform: translateX(-100%);
-  animation: shimmer 1.4s infinite;
-}
-
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-/* ================================
-   PRODUCT TOP (UNCHANGED)
-================================ */
-.product-top-container {
-  width: 100%;
-}
-
-.product-top-container p {
-  font-size: 16px;
-  line-height: 30px;
-  padding: 0 20px;
-  text-align: justify;
-}
-
-.explore-all {
-  margin-left: 20px;
-}
-
-.product-top-container-img {
-  position: relative;
-}
-
-.product-top-container-img div {
-  background-color: #ea1179;
-  color: white;
-  font-size: 30px;
-  font-weight: bold;
-  position: absolute;
-  bottom: 20px;
-  margin: 20px;
-  padding: 10px 20px;
-}
-
-.product-top-container-img-style {
-  height: 250px;
-  width: 100%;
-  object-fit: cover;
-}
-
-/* ================================
-   MOBILE OPTIMIZATION
-================================ */
+/* ==============================
+   MOBILE
+============================== */
 @media (max-width: 768px) {
   .productcatp {
-    max-width: 200px;
-    min-width: 200px;
-  }
-
-  .product-top-container-img div {
-    font-size: 18px;
-    padding: 5px 10px;
-    bottom: 10px;
-  }
-
-  .product-top-container p {
-    background-color: #EEF5FF;
-    font-size: 13px;
-    line-height: 20px;
-    padding: 5px 20px;
-  }
-
-  .explore-all {
-    font-size: 20px;
-    font-weight: bold;
+    width: 160px;
   }
 }

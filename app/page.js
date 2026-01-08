@@ -4,7 +4,6 @@ import ProductBoardCover from "./components/AllHomeCategories/ProductBoardCover"
 import Benefit from "./components/Benefits/Benefit";
 import { auth, signOut } from "../auth"; 
 import styles from "./page.module.css";
-import Carousel from "./components/Carousel/Carousel";
 import HeroSection from "./components/hero/HeroSection";
 
 export default async function Home() {
