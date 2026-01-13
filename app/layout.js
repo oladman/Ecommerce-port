@@ -14,7 +14,11 @@ const poppins = Poppins({
 export const metadata = {
   title: "YeffsoStore - E-commerce, Clothing, Shoes, Bags",
   description: "Shop Latest wears",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (
@@ -22,7 +26,7 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.variable} page-container`}>
       <SessionProvider>
         <CartContextProvider>
-          <ClientLayout>{children}</ClientLayout> {/* Wrap everything inside ClientLayout */}
+          <ClientLayout>{children}</ClientLayout> 
         </CartContextProvider>
         </SessionProvider>
       </body>

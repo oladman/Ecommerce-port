@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Green Background -->
+  <rect width="64" height="64" rx="12" fill="#2ECC71"></rect>
+
+  <!-- Cart -->
+  <path d="M14 18 H46 L40 40 H18 Z" fill="#FFFFFF"></path>
+  <circle cx="22" cy="46" r="4" fill="#FFFFFF"></circle>
+  <circle cx="38" cy="46" r="4" fill="#FFFFFF"></circle>
+
+  <!-- Y Text -->
+  <text x="32" y="30" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#2ECC71" text-anchor="middle" dominant-baseline="middle">
+    Y
+  </text>
+</svg>
