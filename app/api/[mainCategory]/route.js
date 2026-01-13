@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== "production") {
 
 export async function GET(request, { params }) {
   try {
-    const { mainCategory } = params;
+       const { mainCategory } = await params;
     const config = MAIN_CATEGORY_CONFIG[mainCategory];
 
     if (!config) {

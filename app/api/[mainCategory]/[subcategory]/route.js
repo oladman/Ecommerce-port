@@ -16,7 +16,7 @@ if (process.env.NODE_ENV !== "production") {
 
 export async function GET(request, { params }) {
   try {
-    const { mainCategory, subcategory } = params;
+    const { mainCategory, subcategory } = await params;
 
     // 1️⃣ Validate main category and subcategory
     if (!SUBCATEGORY_MAP[mainCategory]) {

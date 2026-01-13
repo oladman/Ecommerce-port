@@ -9,24 +9,20 @@ export default async function ProductInfo({ slug }) {
   const product = await getProductBySlug(slug);
 
   return (
-    <div className={styles["main-product-content-right"]}>
-      <h1 className={styles["Pname"]}>{product.name}</h1>
+    <section className={styles["productInfo"]}>
+      <h1  className={styles["productTitle"]}>{product.name}</h1>
 
-      <StarRating slug={slug} />
+      <div className={styles["ratingRow"]} >
+        <StarRating slug={slug} />
+      </div>
 
       <ProductPrice price={product.price} />
 
-      <hr className={styles["divider"]} />
-
       <ProductVariants variants={product.variants} />
 
-      <div className={styles["Buttons"]}>
-        <CartButton
-          product={product}
-          name=" Add to Cart"
-          styleType="btn-one"
-        />
+      <div className={styles["cartSection"]}>
+        <CartButton product={product} name="Add to Cart" styleType="primary" />
       </div>
-    </div>
+    </section>
   );
 }

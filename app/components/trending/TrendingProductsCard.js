@@ -8,12 +8,14 @@ export default function TrendingProductsCard({ product }) {
   return (
     <Link href={`/Products/${product.slug}`} className={styles["product-card"]}>
       <div className={styles["image-wrapper"]}>
-        <Image
-          src={`/images/${product.images?.[0]?.url || "default-image.jpg"}`}
-          alt={product.images?.[0]?.altText || "Product Image"}
-          fill
-          className={styles["product-image"]}
-        />
+       <Image
+  src={`/images/${product.images?.[0]?.url || "default-image.jpg"}`}
+  alt={product.images?.[0]?.altText || "Product Image"}
+  fill
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+  className={styles["product-image"]}
+/>
+
       </div>
       <div className={styles["product-info"]}>
         <p className={styles["top-deal-name"]}>{product.name}</p>

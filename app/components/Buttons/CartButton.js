@@ -2,34 +2,61 @@
 
 import { useContext } from "react";
 import { CartContext } from "../../context/ProductContext";
-import styles from './CartButton.module.css'
+import styles from "./CartButton.module.css";
 import Button from "./Button";
-import { FaPlus } from "react-icons/fa6";
-import { FaMinus } from "react-icons/fa";
-import { FaTrash } from "react-icons/fa";
+import { FaPlus, FaMinus, FaTrash } from "react-icons/fa";
 
-const CartButton = ({ product, name, styleType }) => {
-  const { addOneToCart, removeOneFromCart, deleteCart, getProductQuantity } = useContext(CartContext);
+const CartButton = ({ product }) => {
+  const {
+    addOneToCart,
+    removeOneFromCart,
+    deleteCart,
+    getProductQuantity,
+  } = useContext(CartContext);
 
-  if (!product) {
-    return <p>Loading product...</p>;
-  }
+  if (!product) return null;
 
   const quantity = getProductQuantity(product.id);
 
   return (
-    <div>
-      {quantity === 0 ? (
-        <Button className={styles[styleType]} onClick={() => addOneToCart(product, product.id)}>
-         {name}
-        </Button>
-      ) : (
-        <div className={styles['btn-cover']} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <Button onClick={() => addOneToCart(product, product.id)}><FaPlus size={20}/></Button>
-          <span>{quantity}</span>
-          <Button onClick={() => removeOneFromCart(product.id)}><FaMinus size={20} /></Button>
-          <Button onClick={() => deleteCart(product.id)}><FaTrash size={20}/></Button>
-        </div>
+    <div className={styles["cart-controls"]}>
+      {/* Quantity Selector */}
+      <div className={styles["qty"]}>
+        <button
+          className={styles["qty-btn"]}
+          onClick={() => removeOneFromCart(product.id)}
+          disabled={quantity === 0}
+        >
+          <FaMinus />
+        </button>
+
+        <span className={styles["qty-value"]}>{quantity}</span>
+
+        <button
+          className={styles["qty-btn"]}
+          onClick={() => addOneToCart(product, product.id)}
+        >
+          <FaPlus />
+        </button>
+      </div>
+
+      {/* Add to Cart */}
+      <Button
+        className={styles["btn-cover"]}
+        onClick={() => addOneToCart(product, product.id)}
+      >
+        Add to Cart
+      </Button>
+
+      {/* Remove (Trash) */}
+      {quantity > 0 && (
+        <button
+          className={styles["remove-btn"]}
+          onClick={() => deleteCart(product.id)}
+          aria-label="Remove from cart"
+        >
+          <FaTrash />
+        </button>
       )}
     </div>
   );

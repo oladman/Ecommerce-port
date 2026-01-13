@@ -1,5 +1,5 @@
 "use client"; // required if fetching from client-side
-
+import styles from "./StarRating.module.css"
 import React, { useEffect, useState } from "react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
@@ -47,13 +47,15 @@ export default function StarRating({ slug }) {
   });
 
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-      {stars}
-      {/* Numeric rating */}
-      <span style={{ marginLeft: "6px" }}>({avgRating.toFixed(1)})</span>
-      <span style={{ marginLeft: "4px", fontSize: "0.9em", color: "#666" }}>
-        {total} rating{total !== 1 ? "s" : ""}
-      </span>
-    </div>
+<div className={styles["rating"]} >
+  {stars}
+  <span className={styles["ratingValue"]} >{avgRating.toFixed(1)}</span>
+  <span className={styles["ratingCount"]}>
+    ({total} reviews)
+  </span>
+</div>
+
+
+    
   );
 }

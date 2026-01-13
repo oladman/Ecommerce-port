@@ -140,6 +140,7 @@ const Header = () => {
                 width={150}
                 height={50}
                 style={{ objectPosition: 'center', objectFit: 'cover' }}
+                priority
               />
             </Link>
           </div>

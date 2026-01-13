@@ -1,35 +1,56 @@
-.btn-one {
-  padding: 15px 70px 15px 70px;
-  background-color: var(--green);
-  color:var(--lightOrange);
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.qty-btn {
+  width: 42px;
+  height: 42px;
+  background: none;
   border: none;
-  font-weight: bold;
-  border-radius: 5px;
-  font-size: 17px;
-}
-.btn-one:hover {
-  background-color:var(--lighterGreen);
   cursor: pointer;
+  display: grid;
+  place-items: center;
 }
-.btn-two {
-  padding: 15px 30px 15px 30px;
-  border: none;
-  font-weight: 500;
-  border-radius: 5px;
-  font-size: 17px;
+
+.qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
-.btn-two:hover {
-  background-color: aliceblue;
-  cursor: pointer;
+
+.qty-value {
+  width: 40px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .btn-cover {
-  border: 1px solid grey;
-  padding: 10px;
+  flex: 1;
+  height: 42px;
+  background: #0f3d2e;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
 }
 
-.btn-cover button{
-    border: none;
-   cursor: pointer;
-    background-color: #ffff;
+.remove-btn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  color: #e53935;
 }

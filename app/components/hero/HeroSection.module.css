@@ -309,9 +309,7 @@ background: linear-gradient(
 }
 
 @media (max-width: 480px) {
-  .hero-left {
-    min-height: 260px;
-  }
+
   .hero-actions {
     flex-direction: column;
   }

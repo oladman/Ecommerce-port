@@ -1,35 +1,47 @@
 import styles from "@/app/Products/[slug]/page.module.css";
-export default function ProductVariants({ variants }) {
-  const colors = [
-    ...new Set(variants?.map(v => v.color).filter(Boolean)),
-  ];
 
-  const sizes = [
-    ...new Set(variants?.map(v => v.size).filter(Boolean)),
-  ];
+export default function ProductVariants({ variants }) {
+  const colors = [...new Set(variants?.map(v => v.color).filter(Boolean))];
+  const sizes = [...new Set(variants?.map(v => v.size).filter(Boolean))];
+
+  // If no variants at all, render nothing
+  if (!colors.length && !sizes.length) {
+    return null;
+  }
 
   return (
-    <>
-      <div className={styles["PColor"]}>
-        <p>Color:</p>
-        <p>{colors.length ? colors.join(", ") : "No colors available"}</p>
-      </div>
+    <div className={styles["variants"]}>
+      {colors.length > 0 && (
+        <div>
+          <p className={styles["label"]}>Color</p>
+          <div className={styles["optionRow"]}>
+            {colors.map(color => (
+              <button
+                key={color}
+                className={styles["optionChip"]}
+              >
+                {color}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
-      <div className={styles["Psize"]}>
-        <p>Sizes:</p>
-      </div>
-
-      <div className={styles["sizes"]}>
-        {sizes.length ? (
-          sizes.map((size, index) => (
-            <div key={index} className={styles["each-sizes"]}>
-              {size}
-            </div>
-          ))
-        ) : (
-          <div>No sizes available</div>
-        )}
-      </div>
-    </>
+      {sizes.length > 0 && (
+        <div>
+          <p className={styles["label"]}>Size</p>
+          <div className={styles["optionRow"]}>
+            {sizes.map(size => (
+              <button
+                key={size}
+                className={styles["optionChip"]}
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

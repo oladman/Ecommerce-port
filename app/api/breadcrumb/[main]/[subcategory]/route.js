@@ -3,8 +3,8 @@ import { SUBCATEGORY_MAP } from "@/utils/SubCategories";
 
 export async function GET(request, { params }) {
   try {
-    const main = params.main;
-    const subcategory = params.subcategory;
+
+    const { main, subcategory } = await params;
 
     // 1️⃣ Validate main category
     const mainCategoryMap = SUBCATEGORY_MAP[main];

@@ -3,7 +3,7 @@ import { MAIN_CATEGORY_CONFIG } from "@/utils/MainCategoryConfig";
 
 export async function GET(request, { params }) {
   try {
-    const { main } = params;
+    const { main } = await params;
 
     const config = MAIN_CATEGORY_CONFIG[main];
 

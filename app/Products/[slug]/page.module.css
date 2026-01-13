@@ -7,6 +7,30 @@
   justify-content: center;
   color: grey;
 }
+
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.productTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cartSection {
+  margin-top: 1.5rem;
+}
+
 .Main-product-content {
   display: flex;
   align-items: flex-start;
@@ -20,6 +44,7 @@
   align-items: flex-start;
   gap: 10px;
   width: 50%;
+  color: red;
 }
 
 .Pprice {
@@ -67,6 +92,41 @@
   gap: 10px;
   margin-top: 10px;
 }
+.variants{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap:10px
+}
+.variants> div{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+}
+.optionRow {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.optionChip {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.optionChip:hover {
+  border-color: #111;
+}
+
+.optionChip.active {
+  background: #111;
+  color: white;
+}
 
 .each-sizes {
   border: 1.5px solid #ebebeb;
@@ -105,9 +165,11 @@
   justify-content: flex-start;
   gap: 20px;
   width: 50%;
+  position: sticky;
+  top: 80px;
 }
 .product-image{
-
+  border-radius: 12px;
   object-fit: cover;
   object-position: center;
 
@@ -299,6 +361,7 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
+    position: static;
   }
   .overal-cover-product-details-icon {
     flex-direction: row;
@@ -316,12 +379,47 @@
   .Main-product-content {
   margin-top: 20px;
 }
+
+ .productInfo {
+    gap: 1rem;
+  }
+
+  .productTitle {
+    font-size: 1.75rem;
+  }
 }
+
 @media (max-width: 768px) {
+  .productInfo {
+    gap: 0.9rem;
+  }
   .product-image-container {
     min-width: auto;
   }
+  .productTitle {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .ratingRow {
+    font-size: 0.9rem;
+  }
+
+  .cartSection {
+    margin-top: 1.25rem;
+  }
+
+    .cartSection {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    padding: 0.75rem 0;
+    border-top: 1px solid #eee;
+    z-index: 20;
+  }
 }
+
+
 @media (max-width: 540px) {
   .scrollable-text::-webkit-scrollbar {
     display: none;
@@ -357,4 +455,16 @@
   margin-top: 20px;
   padding: 20px;
 }
+
+ .productInfo {
+    gap: 0.75rem;
+  }
+
+  .productTitle {
+    font-size: 1.3rem;
+  }
+
+  .cartSection {
+    margin-top: 1rem;
+  }
 }

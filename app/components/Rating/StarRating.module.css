@@ -1,0 +1,16 @@
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f5a623;
+}
+
+.ratingValue {
+  font-weight: 500;
+  color: #111;
+}
+
+.ratingCount {
+  font-size: 0.85rem;
+  color: #666;
+}
