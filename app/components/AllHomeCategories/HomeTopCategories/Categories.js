@@ -2,47 +2,51 @@ import CategoryItem from "./CategoryItem";
 import styles from "./Categories.module.css";
 
 const categories = [
-  {
-    link: "/accessories",
+ {
+    link: "/homekitchen",
     imageSrc: "/assets/category/home2.jpg",
-    altText: "Home",
-    backgroundColor: "#f2d5cd",
-    categoryName: "Home",
+    altText: "Home & Kitchen",
+    categoryName: "Home & Kitchen",
   },
   {
-    link: "/men",
-    imageSrc: "/assets/category/electronics8.jpg",
+    link: "/electronics",
+    imageSrc: "/assets/category/electronics.jpg",
     altText: "Electronics",
-    backgroundColor: "#B7B7B7",
     categoryName: "Electronics",
   },
+    {
+    link: "/computers",
+    imageSrc: "/assets/category/computers.jpg",
+    altText: "Computers",
+    categoryName: "Computers",
+  },
   {
-    link: "/women",
-    imageSrc: "/assets/category/women1.jpg",
+    link: "/fashion",
+    imageSrc: "/assets/category/fashion.jpg",
     altText: "Fashion",
-    backgroundColor: "#499d90",
     categoryName: "Fashion",
   },
-  {
-    link: "/kids",
-    imageSrc: "/assets/category/kid1.jpg",
-    altText: "Toys",
-    backgroundColor: "#C4E1F6",
-    categoryName: "Kids",
+   {
+    link: "/arts",
+    imageSrc: "/assets/category/arts.jpg",
+    altText: "arts",
+    categoryName: "Arts",
   },
+   {
+    link: "/sports",
+    imageSrc: "/assets/category/sports.jpg",
+    altText: "Sports",
+    categoryName: "Sports",
+  }
+
 ];
 
 const Categories = () => {
   return (
     <section className={styles["cover-image-category"]}>
-      <h1>Categories</h1>
-
       <div className={styles["image-category"]}>
         {categories.map((category) => (
-          <CategoryItem
-            key={category.link}
-            {...category}
-          />
+          <CategoryItem key={category.link} {...category} />
         ))}
       </div>
     </section>

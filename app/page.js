@@ -2,7 +2,7 @@ import HomeTopCategories from "./components/AllHomeCategories/HomeTopCategories/
 import Trending from "./components/trending/Trending";
 import ProductBoardCover from "./components/AllHomeCategories/ProductBoardCover";
 import Benefit from "./components/Benefits/Benefit";
-import { auth, signOut } from "../auth"; 
+import { auth, signOut } from "../auth";
 import styles from "./page.module.css";
 import HeroSection from "./components/hero/HeroSection";
 
@@ -11,8 +11,8 @@ export default async function Home() {
 
   return (
     <div id="wrapper">
-         {/*<Carousel /> */}
-         <HeroSection />
+      {/*<Carousel /> */}
+      <HeroSection />
       {/* Show only if user is logged in */}
       {session && (
         <div className={styles["login-check"]}>
@@ -31,12 +31,16 @@ export default async function Home() {
         </div>
       )}
 
-   
+
       <HomeTopCategories />
-     {/* <Benefit /> */}
+      {/* <Benefit /> */}
       <Trending />
-      <ProductBoardCover />
+      <div className="All-home-categories">
+        <h1>Categories</h1>
+        <ProductBoardCover />
+      </div>
+
     </div>
-    
+
   );
 }

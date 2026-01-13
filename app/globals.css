@@ -67,8 +67,11 @@ body {
   height: 80px; /* Adjust as needed */
 }
 
-.footer {
-  height: 80px; /* Adjust as needed */
+
+.All-home-categories h1 {
+  font-weight: 500;
+  font-size: 30px;
+  text-align: center;
 }
 @media (max-width: 900px) {
   #wrapper {
@@ -76,6 +79,9 @@ body {
 
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  .All-home-categories h1 {
+    font-size: 25px;
   }
 }
 

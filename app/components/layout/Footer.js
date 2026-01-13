@@ -81,7 +81,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Highlights */}
       <div className="footer-highlights">
         <div><div ><MdLocalShipping className="icon" /></div> <p>Shipping to <br /> <span>OVER 200 COUNTRIES</span></p></div>
         <div><div><RiSecurePaymentLine className="icon" /> </div><p>100% Secure <br /> <span>CHECKOUT</span></p></div>
@@ -89,7 +88,6 @@ const Footer = () => {
         <div><div><FaRegStar className="icon" /> </div><p>Over 9,000 <br /> <span>GENUINE REVIEWS</span></p></div>
       </div>
 
-      {/* Bottom bar */}
       <div className="footer-bottom">
         <p>© 2021–2024 | All Rights Reserved </p>
  <div className="featured"> This project is featured in Oladimeji’s portfolio.

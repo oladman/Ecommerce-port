@@ -1,15 +1,13 @@
-import Link from 'next/link';
-import styles from './CategoryItem.module.css';
+import Link from "next/link";
+import styles from "./CategoryItem.module.css";
 
-const CategoryItem = ({ link, imageSrc, altText, backgroundColor, categoryName }) => {
+const CategoryItem = ({ link, imageSrc, altText, categoryName }) => {
   return (
-    <Link className={styles["image-category-item"]} href={link}>
-      <div className={styles["top-category-item"]} style={{ background: backgroundColor }}>
+    <Link href={link} className={styles["image-category-item"]}>
+      <div className={styles["image-wrapper"]}>
         <img src={imageSrc} alt={altText} />
       </div>
-      <div className={styles["bottom-category-item"]}>
-        <p>{categoryName}</p>
-      </div>
+      <p className={styles["category-title"]}>{categoryName}</p>
     </Link>
   );
 };
