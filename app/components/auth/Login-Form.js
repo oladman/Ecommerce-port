@@ -48,11 +48,14 @@ const LoginForm = () => {
     setError("");
     setSuccess("");
 
-    startTransition(() => {
-      login(values).then((data) => {
-        setError(data.error);
-        setSuccess(data.success);
-      });
+    // Removed startTransition as it can interfere with server-side redirects
+    login(values).then((data) => {
+      setError(data?.error);
+      setSuccess(data?.success);
+    }).catch(error => {
+      // Catch any unexpected errors from the server action that aren't AuthErrors
+      console.error("Login action unexpected error:", error);
+      setError("An unexpected error occurred during login.");
     });
   };
 

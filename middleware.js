@@ -1,21 +1,38 @@
-// middleware.js
-import { DEFAULT_LOGIN_REDIRECT } from "./routes";
+import { auth } from "./auth";
+import {
+  DEFAULT_LOGIN_REDIRECT,
+  apiAuthPrefix,
+  authRoutes,
+  publicRoutes,
+} from "./routes";
 
-export default async function middleware(req) {
+export default auth((req) => {
   const { nextUrl } = req;
-  const { pathname } = nextUrl;
+  const isLoggedIn = !!req.auth;
 
-  // Protect only checkout page
-  if (pathname === "/checkout") {
-    const token = req.cookies.get("next-auth.session-token");
-    if (!token) {
-      return Response.redirect(new URL("/login", nextUrl));
-    }
+  const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
+  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+  const isAuthRoute = authRoutes.includes(nextUrl.pathname);
+
+  if (isApiAuthRoute) {
+    return null;
   }
 
-  return null; // allow everything else
-}
+  if (isAuthRoute) {
+    if (isLoggedIn) {
+      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+    }
+    return null;
+  }
+
+  if (!isLoggedIn && !isPublicRoute) {
+    return Response.redirect(new URL("/login", nextUrl));
+  }
+
+  return null;
+});
 
 export const config = {
-  matcher: ["/checkout", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+  runtime: 'nodejs',
 };

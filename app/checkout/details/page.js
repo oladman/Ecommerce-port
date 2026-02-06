@@ -35,16 +35,16 @@ const CheckoutDetails = () => {
       }
 
       try {
-        console.log("Fetching user details...");
+       
         const response = await fetch(`/api/user/details/${session.user.id}`);
 
         if (!response.ok) {
-          console.warn("User details not found, using empty form.");
+         
           throw new Error("No user details found");
         }
 
         const data = await response.json();
-        console.log("User details fetched:", data);
+       
 
         // Update form with fetched data OR keep it empty
         setFormData({
@@ -58,7 +58,7 @@ const CheckoutDetails = () => {
         });
 
       } catch (error) {
-        console.error("Error fetching user details:", error);
+       
         setError("Failed to load user details. Please enter them manually.");
       } finally {
         setLoading(false); // Ensure form appears

@@ -1,9 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/ProductContext";
-import { FaPlus } from "react-icons/fa6";
-import { FaMinus } from "react-icons/fa6";
-import { MdDelete } from "react-icons/md";
 import styles from "./Checkout-items.module.css";
+import {formatPrice} from "../../../utils/formatPrice";
 const CheckOutItem = () => {
   const {
     items,
@@ -13,16 +11,7 @@ const CheckOutItem = () => {
     getProductQuantity,
   } = useContext(CartContext);
 
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat("en-NG", {
-      style: "currency",
-      currency: "NGN",
-      minimumFractionDigits: 2,
-    })
-      .format(price)
-      .replace("NGN", "₦") // Ensures proper Naira symbol placement
-      .trim();
-  };
+
   return (
     <div id="wrapper">
       {items.length === 0 ? (

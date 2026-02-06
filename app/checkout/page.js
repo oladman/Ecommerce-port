@@ -13,6 +13,7 @@ import CheckOutItem from "../components/checkout/Checkout-items";
 import { useContext } from "react";
 import { CartContext } from "../context/ProductContext";
 import { HiLockClosed } from "react-icons/hi2";
+import {formatPrice} from "../../utils/formatPrice";
 
 
 const CheckoutPage = () => {
@@ -46,7 +47,7 @@ const CheckoutPage = () => {
         const data = await res.json();
         setUserDetails(data);
       } catch (error) {
-        console.error("Error fetching user details:", error);
+       
       } finally {
         setLoading(false);
       }
@@ -61,16 +62,7 @@ const CheckoutPage = () => {
 
   if (loading) return <p>Loading...</p>;
 
-    const formatPrice = (price) => {
-    return new Intl.NumberFormat("en-NG", {
-      style: "currency",
-      currency: "NGN",
-      minimumFractionDigits: 2,
-    })
-      .format(price)
-      .replace("NGN", "₦") // Ensures proper Naira symbol placement
-      .trim();
-  };
+
 
 
 
@@ -232,18 +224,17 @@ const CheckoutPage = () => {
                         </div>
                       </div>
                     ))}
-                    {/* Confirm Button */}
                     <button
                       className={styles["confirm-button"]}
                       onClick={handleConfirmPayment}
-                      disabled={!tempPayment} // Disable if no method is selected
+                      disabled={!tempPayment} 
                     >
                       Confirm Payment Method
                     </button>
                   </div>
                 )}
 
-                {/* Show Selected Payment Method */}
+               
 
                 {selectedPayment && (
                   <div className={styles["payment-summary"]}>
@@ -278,7 +269,7 @@ const CheckoutPage = () => {
                   </Link>
                 </div>
                 <div>
-                  {/*<Checkoutitems /> */}
+                  
                   <CheckOutItem />
                 </div>
               </div>
@@ -298,7 +289,7 @@ const CheckoutPage = () => {
           </div>
 
           <div className={styles["order-summary-item"]}>
-            <p>Shipping Fee:</p> <strong>{formatPrice(2500)}</strong>
+            <p>Shipping Fee:</p> <strong>{formatPrice(100)}</strong>
           </div>
 
           <div className={styles["order-summary-item-total"]}>
