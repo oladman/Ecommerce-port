@@ -38,7 +38,7 @@ export async function login(values) {
     });
   } catch (error) {
     if (error && typeof error === 'object' && 'digest' in error && error.digest?.includes('NEXT_REDIRECT')) {
-      throw error;
+      return; 
     }
 
     if (error instanceof AuthError) {
