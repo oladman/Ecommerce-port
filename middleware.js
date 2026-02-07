@@ -6,12 +6,28 @@ import {
   publicRoutes,
 } from "./routes";
 
+const isPathMatch = (pathname, patterns) => {
+  return patterns.some(pattern => {
+    if (pattern.endsWith(":path*")) {
+      const basePattern = pattern.slice(0, -":path*".length);
+      return pathname.startsWith(basePattern);
+    }
+    return pathname === pattern;
+  });
+};
+
 export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
 
-  const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
-  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+
+  const isApiAuthRoute = apiAuthPrefix.some((prefix) =>
+    nextUrl.pathname.startsWith(prefix)
+  );
+
+
+  const isPublicRoute = isPathMatch(nextUrl.pathname, publicRoutes);
+
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
   if (isApiAuthRoute) {
