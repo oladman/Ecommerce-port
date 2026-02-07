@@ -2,6 +2,8 @@ export const publicRoutes = [
   "/",  //Home route
   "/api/products", // Country API route
   "/api/product/:path*", // Wildcard to match dynamic segments like /api/country/[id]
+  "/favicon.svg",
+  "/favicon.ico",
 ];
 
 export const authRoutes = ["/login", "/register", "/error"];
