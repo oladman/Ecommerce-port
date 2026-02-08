@@ -6,7 +6,7 @@ export async function GET(request, { params }) {
 
     const { main, subcategory } = await params;
 
-    // 1️⃣ Validate main category
+  
     const mainCategoryMap = SUBCATEGORY_MAP[main];
 
     if (!mainCategoryMap) {
@@ -16,7 +16,6 @@ export async function GET(request, { params }) {
       );
     }
 
-    // 2️⃣ Validate subcategory (case-sensitive as requested)
     const categoryPath = mainCategoryMap[subcategory];
 
     if (!categoryPath) {
@@ -26,7 +25,7 @@ export async function GET(request, { params }) {
       );
     }
 
-    // 3️⃣ Extract readable names from path
+  
     const [mainName, subName] = categoryPath.split("/");
 
     return NextResponse.json({

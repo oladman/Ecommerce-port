@@ -1,14 +1,10 @@
 // app/api/products/route.js or pages/api/products.js
 
-import { PrismaClient } from '@prisma/client';
+
+import { prisma } from "@/lib/prisma";
 import { NextResponse } from 'next/server';
 
-const globalForPrisma = globalThis;
-const prisma = globalForPrisma.prisma || new PrismaClient();
 
-if (process.env.NODE_ENV !== 'production') {
-  globalForPrisma.prisma = prisma;
-}
 
 export async function GET() {
   try {

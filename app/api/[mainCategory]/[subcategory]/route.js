@@ -1,22 +1,12 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { SUBCATEGORY_MAP } from "@/utils/SubCategories";
 
 export const runtime = "nodejs";
 
-// Prisma singleton (safe for Next.js)
-const globalForPrisma = globalThis;
-const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({ log: ["error"] });
-
-if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
-}
-
 export async function GET(request, { params }) {
   try {
-    const { mainCategory, subcategory } = await params;
+    const { mainCategory, subcategory } = params;
 
     // 1️⃣ Validate main category and subcategory
     if (!SUBCATEGORY_MAP[mainCategory]) {
@@ -37,7 +27,7 @@ export async function GET(request, { params }) {
     // 2️⃣ Pagination
     const { searchParams } = new URL(request.url);
     const page = Number(searchParams.get("page")) || 1;
-    const limit = Number(searchParams.get("limit")) || 12;
+    const limit = Math.min(Number(searchParams.get("limit")) || 12, 50);
     const skip = (page - 1) * limit;
 
     // 3️⃣ Fetch subcategory IDs
@@ -46,14 +36,14 @@ export async function GET(request, { params }) {
       select: { id: true },
     });
 
-    if (subCategories.length === 0) {
+    if (!subCategories.length) {
       return NextResponse.json(
         { data: [], total: 0, page, limit },
         { status: 200 }
       );
     }
 
-    const categoryIds = subCategories.map(c => c.id);
+    const categoryIds = subCategories.map((c) => c.id);
 
     // 4️⃣ Fetch products
     const [products, total] = await prisma.$transaction([
@@ -78,10 +68,7 @@ export async function GET(request, { params }) {
       totalPages: Math.ceil(total / limit),
     });
   } catch (err) {
-    console.error(
-      `Error fetching products for ${params.mainCategory}/${params.subcategory}:`,
-      err
-    );
+    console.error("Error fetching subcategory products:", err);
 
     return NextResponse.json(
       { message: "Internal Server Error" },

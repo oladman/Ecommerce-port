@@ -1,23 +1,14 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { MAIN_CATEGORY_CONFIG } from "@/utils/MainCategoryConfig";
 
 export const runtime = "nodejs";
 
-const globalForPrisma = globalThis;
-const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({ log: ["error"] });
-
-if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
-}
-
 export async function GET(request, { params }) {
   try {
-       const { mainCategory } = await params;
-    const config = MAIN_CATEGORY_CONFIG[mainCategory];
+    const { mainCategory } = params;
 
+    const config = MAIN_CATEGORY_CONFIG[mainCategory];
     if (!config) {
       return NextResponse.json(
         { message: "Invalid main category" },
@@ -27,14 +18,12 @@ export async function GET(request, { params }) {
 
     const { searchParams } = new URL(request.url);
     const page = Number(searchParams.get("page")) || 1;
-    const limit = Number(searchParams.get("limit")) || 12;
+    const limit = Math.min(Number(searchParams.get("limit")) || 12, 50);
     const skip = (page - 1) * limit;
 
     const subCategories = await prisma.category.findMany({
       where: {
-        path: {
-          startsWith: config.pathPrefix,
-        },
+        path: { startsWith: config.pathPrefix },
       },
       select: { id: true },
     });

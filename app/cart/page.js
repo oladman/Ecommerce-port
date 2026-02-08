@@ -25,7 +25,7 @@ const Page = () => {
       <div id="wrapper">
         <div className={styles.cart}>
           <CartBreadcrumb />
-          <h1>Shopping Cart</h1>
+          <h1 className={styles["cart-title"]}> Shopping Cart</h1>
 
           {items.length === 0 ? (
             <CartEmpty />
@@ -43,8 +43,8 @@ const Page = () => {
         </div>
 
         <div className={styles["Go-back"]}>
-          <HiArrowLongLeft />
-          <Link href="/" style={{ textDecoration: "none", color: "#246854" }}>
+          <HiArrowLongLeft className={styles["Go-back-icon"]} />
+          <Link href="/" className={styles["Go-back-link"]}>
             Continue Shopping
           </Link>
         </div>

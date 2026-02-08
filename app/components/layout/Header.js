@@ -149,8 +149,8 @@ const Header = () => {
 
 
             <div className={styles["nav-links-icon-cart"]}>
-              <FaSearch style={{ color: "#00ab55", fontSize: "16px", cursor: "pointer" }} />
-              <LoginButton> <FaUserAlt style={{ color: "#00ab55", fontSize: "16px", cursor: "pointer" }} /> </LoginButton>
+              <FaSearch className={styles["icon"]} />
+              <LoginButton> <FaUserAlt className={styles["icon"]} /> </LoginButton>
               <Link href="/cart" className={styles["Cart-cover"]}>
                 <div className={styles["nav-links-cart"]}>
                   <FaShoppingCart style={{ color: "#fff", fontSize: "16px" }} />

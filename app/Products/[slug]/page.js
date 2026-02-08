@@ -7,6 +7,14 @@ import {
   ProductTabsSkeleton,
   RelatedProductsSkeleton,
 } from "@/app/components/Skeleton";
+import { getProductBySlug } from "@/lib/getProductBySlug";
+
+export async function generateMetadata({ params }) {
+  const product = await getProductBySlug(params.slug);
+  return {
+    title: product.name,
+  };
+}
 
 export default function Page({ params, searchParams }) {
   const { slug } = params;

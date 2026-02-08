@@ -6,7 +6,13 @@
 .cart h1 {
   margin-bottom: 50px;
 }
-
+.Go-back-link{
+  color: var(--brand-green);
+  text-decoration: none;
+}
+.Go-back-icon{
+  color: var(--brand-green);
+}
 .top {
   display: flex;
   align-items: center;
@@ -14,11 +20,13 @@
   gap: 20px;
   width: 50%;
 }
-
+.cart-title{
+  font-weight: 500;
+}
 .P-name {
   display: flex;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
   width: 100%;
 }
 .P-details {
@@ -111,10 +119,31 @@
   color: var(--green);
   margin-top: 50px;
   font-size: 14px;
+  padding: 10px 15px; /* Add padding to make it look like a button */
+  border-radius: 8px; /* Slightly rounded corners */
+  transition: all 0.2s ease-in-out; /* Smooth transition for all properties */
+  width: fit-content; /* Adjust width to content */
 }
 .Go-back:hover {
-  color: var(--lighterGreen);
-  font-size: 16px;
+  cursor: pointer;
+  color: var(--lighterGreen); /* Keep font color change */
+  background-color: var(--bg-hover-light, #f0f0f0); /* Subtle background change, fallback for --bg-hover-light */
+  transform: translateX(-5px); /* Move slightly to the left on hover */
+}
+.Go-back-link{
+  color: var(--brand-green);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out; /* Smooth color transition for link */
+}
+.Go-back:hover .Go-back-link {
+  color: var(--lighterGreen); /* Match icon color on hover */
+}
+.Go-back-icon{
+  color: var(--brand-green);
+  transition: color 0.2s ease-in-out; /* Smooth color transition for icon */
+}
+.Go-back:hover .Go-back-icon {
+  color: var(--lighterGreen); /* Match link color on hover */
 }
 
 /* General row layout for both headings & products */
